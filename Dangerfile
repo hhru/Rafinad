@@ -13,4 +13,5 @@ swiftlint.lint_all_files = true
 swiftlint.lint_files(fail_on_error: true, inline_mode: true)
 
 report_xcode_summary(platform: "iOS")
+report_xcode_summary(platform: "macOS")
 report_xcode_summary(platform: "tvOS")

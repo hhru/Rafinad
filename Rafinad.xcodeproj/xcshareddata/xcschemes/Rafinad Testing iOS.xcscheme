@@ -17,7 +17,21 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C0CA7D462DCA5BB3002A744E"
                BuildableName = "RafinadTesting.framework"
-               BlueprintName = "Rafinad Tesing iOS"
+               BlueprintName = "Rafinad Testing iOS"
+               ReferencedContainer = "container:Rafinad.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C057F01623CB8EEB00C2D895"
+               BuildableName = "RafinadTests.xctest"
+               BlueprintName = "Rafinad Tests iOS"
                ReferencedContainer = "container:Rafinad.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,8 +41,13 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      shouldAutocreateTestPlan = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <TestPlans>
+         <TestPlanReference
+            reference = "container:Tests/TestPlans/TestPlan-iOS.xctestplan"
+            default = "YES">
+         </TestPlanReference>
+      </TestPlans>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -52,7 +71,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C0CA7D462DCA5BB3002A744E"
             BuildableName = "RafinadTesting.framework"
-            BlueprintName = "Rafinad Tesing iOS"
+            BlueprintName = "Rafinad Testing iOS"
             ReferencedContainer = "container:Rafinad.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

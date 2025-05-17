@@ -17,7 +17,21 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C043A2892DCE36B300F6C58A"
                BuildableName = "RafinadTesting.framework"
-               BlueprintName = "Rafinad Tesing macOS"
+               BlueprintName = "Rafinad Testing macOS"
+               ReferencedContainer = "container:Rafinad.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C043A2A42DCE379200F6C58A"
+               BuildableName = "RafinadTests.xctest"
+               BlueprintName = "Rafinad Tests macOS"
                ReferencedContainer = "container:Rafinad.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,8 +41,13 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      shouldAutocreateTestPlan = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <TestPlans>
+         <TestPlanReference
+            reference = "container:Tests/TestPlans/TestPlan-macOS.xctestplan"
+            default = "YES">
+         </TestPlanReference>
+      </TestPlans>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -52,7 +71,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C043A2892DCE36B300F6C58A"
             BuildableName = "RafinadTesting.framework"
-            BlueprintName = "Rafinad Tesing macOS"
+            BlueprintName = "Rafinad Testing macOS"
             ReferencedContainer = "container:Rafinad.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
