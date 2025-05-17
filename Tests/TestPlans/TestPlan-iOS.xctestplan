@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "A4ADC9F1-0EC4-45EB-9ED0-C487B70A0284",
+      "name" : "Configuration",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Rafinad.xcodeproj",
+        "identifier" : "C057F01623CB8EEB00C2D895",
+        "name" : "Rafinad Tests iOS"
+      }
+    }
+  ],
+  "version" : 1
+}

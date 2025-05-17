@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "36132F7E-C133-4984-8FD5-2155C9D851B5",
+      "name" : "Configuration",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:RafinadExample.xcodeproj",
+      "identifier" : "C017D13225FBAD0F008B90C0",
+      "name" : "Rafinad Example iOS"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:RafinadExample.xcodeproj",
+        "identifier" : "C0E4DA792DCA804000BAE067",
+        "name" : "Rafinad Example Tests"
+      }
+    }
+  ],
+  "version" : 1
+}

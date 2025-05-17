@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "827129CD-702C-401C-AC13-813B56071A83",
+      "name" : "Configuration",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Rafinad.xcodeproj",
+        "identifier" : "C0A01A4E23CB92EB00AC2C3A",
+        "name" : "Rafinad Tests tvOS"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -1,0 +1,8 @@
+disabled_rules:
+  - explicit_acl
+  - explicit_top_level_acl
+  - file_length
+  - function_body_length
+  - implicitly_unwrapped_optional
+  - nesting
+  - type_body_length
