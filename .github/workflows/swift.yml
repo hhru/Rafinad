@@ -44,7 +44,6 @@ jobs:
           swift --version
       - name: Test iOS
         run: |
-        run: |
           xcodebuild clean build test \
             -project "$XCODE_PROJECT" \
             -scheme "$IOS_SCHEME" \
