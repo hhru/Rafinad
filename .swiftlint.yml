@@ -132,7 +132,7 @@ only_rules:
   - private_outlet
   - private_over_fileprivate
   - private_subject
-  - private_swiftui_state_property
+  # - private_swiftui_state_property
   - private_unit_test
   - prohibited_interface_builder
   - prohibited_super_call

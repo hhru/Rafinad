@@ -5,7 +5,7 @@ set -e
 readonly helpers_path="$( cd "$( dirname "$0" )" && pwd )/Helpers"
 
 readonly derived_data_path="DerivedData"
-readonly documentation_path="Documentation"
+readonly documentation_path="docs"
 readonly docarchive_path="${derived_data_path}/Build/Products/Release-iphonesimulator/RafinadDocumentation.doccarchive"
 readonly hosting_base_path="Rafinad"
 
