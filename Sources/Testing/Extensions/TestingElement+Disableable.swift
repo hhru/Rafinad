@@ -110,8 +110,12 @@ extension XCUIElement {
             return false
         }
 
-        return children(matching: .any)
-            .allElementsBoundByIndex
-            .allSatisfy { $0.isEnabled }
+        let children = children(matching: .any).allElementsBoundByIndex
+
+        if children.isEmpty {
+            return true
+        }
+
+        return children.contains { $0.isEnabled }
     }
 }

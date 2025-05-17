@@ -11,7 +11,7 @@ Rafinad предоставляет механизмы для более стро
 
 Для этого Rafinad вводит 2 новых термина:
 - term Accessibility-схема: Вспомогательный тип тестируемого UI-компонента или экрана,
-который позволяет кратко описать его структуру и возможности для тестов.
+который позволяет кратко описывать его структуру и возможности для тестов.
 - term Accessibility-ключ: Аналог accessibility-идентификатора, 
 который позволяет использовать key-path поля из accessibility-схемы 
 в качестве идентификатора UI-компонента для его поиска в тестах.
@@ -27,6 +27,8 @@ Rafinad предоставляет механизмы для более стро
 наследуя базовый класс ``ScreenAccessibility``:
 
 ``` swift
+import Rafinad
+
 /// Accessibility-схема экрана с информацией о пользователе 
 class UserAccessibility: ScreenAccessibility {
 
@@ -39,12 +41,14 @@ class UserAccessibility: ScreenAccessibility {
 используя key-path полей схемы:
 
 ``` swift
+import SwiftUI
+
 struct UserView: View {
 
     let user: User
 
     var body: some View {
-        VStack(spacing: .zero) {
+        VStack(spacing: 4) {
             Text(user.name)
                 .font(.largeTitle)
                 // Установка ключа для имени пользователя
@@ -55,7 +59,6 @@ struct UserView: View {
                 .foregroundStyle(.secondary)
                 // Установка ключа для должности пользователя
                 .accessibilityKey(\UserAccessibility.position)
-                .padding(.top, 4)
         }
     }
 }
@@ -64,12 +67,15 @@ struct UserView: View {
 Теперь наш экран готов к UI-тестированию, осталось добавить сами тесты:
 
 ``` swift
+import XCTest
+import RafinadTesting
+
 @MainActor
-final class UserScreenTests2: XCTestCase {
+final class UserScreenTests: XCTestCase {
 
     let application = XCUIApplication()
 
-    func testThatUserTitleIsCorrect() {
+    func testThatUserNameIsCorrect() {
         application.launch()
 
         application
@@ -122,3 +128,4 @@ final class UserScreenTests2: XCTestCase {
 
 - ``TestingElement``
 - ``TestingList``
+- ``Testing``

@@ -47,7 +47,7 @@ final class UserListScreenTests: XCTestCase {
 
         userList
             .waitForExistence()
-            .users[userList.users.count - 2]
+            .users[User.all.count - 2]
             .assert(isExist: true)
             .divider
             .assert(isExist: true)
@@ -62,7 +62,7 @@ final class UserListScreenTests: XCTestCase {
 
         userList
             .waitForExistence()
-            .users[userList.users.count - 1]
+            .users[User.all.count - 1]
             .assert(isExist: true)
             .divider
             .assert(isExist: false)

@@ -30,6 +30,31 @@ extension TestingElement where Accessibility: ViewAccessibility {
         )
     }
 
+    /// Проверяет, что фрейм компонента равен указанному.
+    ///
+    /// - Parameters:
+    ///   - frame: Фрейм компонента.
+    ///   - file: Файл, в котором должен произойти сбой.
+    ///           По умолчанию используется имя файла, в котором был вызван этот метод.
+    ///   - line: Номер строки, на которой должен произойти сбой.
+    ///           По умолчанию используется номер строки, на которой был вызван этот метод.
+    /// - Returns: Экземпляр тестируемого компонента.
+    @discardableResult
+    public func assert(
+        frame: CGRect,
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) -> Self {
+        XCTAssertEqual(
+            self.frame,
+            frame,
+            file: file,
+            line: line
+        )
+
+        return self
+    }
+
     /// Проверяет, что наличие компонента равно указанному.
     ///
     /// - Parameters:
@@ -51,6 +76,38 @@ extension TestingElement where Accessibility: ViewAccessibility {
             file: file,
             line: line
         )
+
+        return self
+    }
+
+    /// Ждет указанное время, пока фрейм компонента не станет равен указанному.
+    ///
+    /// - Parameters:
+    ///   - frame: Фрейм компонента.
+    ///   - timeout: Время ожидания текста компонента в секундах.
+    ///              По умолчанию равен 4 секундам.
+    ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного ожидания.
+    ///              По умолчанию флаг включен.
+    ///   - file: Файл, в котором должен произойти сбой.
+    ///           По умолчанию используется имя файла, в котором был вызван этот метод.
+    ///   - line: Номер строки, на которой должен произойти сбой.
+    ///           По умолчанию используется номер строки, на которой был вызван этот метод.
+    /// - Returns: Экземпляр тестируемого компонента.
+    @discardableResult
+    public func waitForFrame(
+        _ frame: CGRect,
+        timeout: TimeInterval = 4,
+        failing: Bool = true,
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) -> Self {
+        if !element.wait(for: \.frame, toEqual: frame, timeout: timeout), failing {
+            XCTFail(
+                "Frame of element \(element) was not equal to \(frame) within \(timeout) seconds",
+                file: file,
+                line: line
+            )
+        }
 
         return self
     }

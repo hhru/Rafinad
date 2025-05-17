@@ -1,12 +1,12 @@
 # Rafinad
 [![Build Status](https://github.com/hhru/Rafinad/actions/workflows/swift.yml/badge.svg)](https://github.com/hhru/Rafinad/actions)
-[![Cocoapods](https://img.shields.io/cocoapods/v/Rafinad)](http://cocoapods.org/pods/Rafinad)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen)](https://github.com/Carthage/Carthage)
 [![SPM compatible](https://img.shields.io/badge/SPM-Compatible-brightgreen)](https://swift.org/package-manager/)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen)](https://github.com/Carthage/Carthage)
+[![Cocoapods](https://img.shields.io/cocoapods/v/Rafinad)](http://cocoapods.org/pods/Rafinad)
 [![Platforms](https://img.shields.io/cocoapods/p/Rafinad)](https://developer.apple.com/discover/)
 [![Xcode](https://img.shields.io/badge/Xcode-16-blue)](https://developer.apple.com/xcode)
 [![Swift](https://img.shields.io/badge/Swift-5.9-orange)](https://swift.org)
-[![License](https://img.shields.io/github/license/hhru/Rafinad)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/github/license/hhru/rafinad)](https://opensource.org/licenses/MIT)
 
 Rafinad is a DSL for UI testing of iOS and tvOS apps, featuring a simplified, chainable, and compile-time-safe syntax.
 
@@ -106,6 +106,8 @@ To use Rafinad on this screen in your tests, the first step is to create an acce
 by subclassing the base `ScreenAccessibility` class:
 
 ``` swift
+import Rafinad
+
 // Accessibility scheme for the user screen
 class UserAccessibility: ScreenAccessibility {
 
@@ -117,12 +119,14 @@ class UserAccessibility: ScreenAccessibility {
 Next, set accessibility keys to the components on the screen, using the key-paths from your scheme:
 
 ``` swift
+import SwiftUI
+
 struct UserView: View {
 
     let user: User
 
     var body: some View {
-        VStack(spacing: .zero) {
+        VStack(spacing: 4) {
             Text(user.name)
                 .font(.largeTitle)
                 // Set accessibility key for user name
@@ -133,7 +137,6 @@ struct UserView: View {
                 .foregroundStyle(.secondary)
                 // Set accessibility key for user position
                 .accessibilityKey(\UserAccessibility.position)
-                .padding(.top, 4)
         }
     }
 }
@@ -142,12 +145,15 @@ struct UserView: View {
 Now your screen is ready for UI testing. You can write tests as follows:
 
 ``` swift
+import XCTest
+import RafinadTesting
+
 @MainActor
 final class UserScreenTests: XCTestCase {
 
     let application = XCUIApplication()
 
-    func testThatUserTitleIsCorrect() {
+    func testThatUserNameIsCorrect() {
         application.launch()
 
         application

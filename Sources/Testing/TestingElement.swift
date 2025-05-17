@@ -29,7 +29,7 @@ import XCTest
 /// передав тип accessibility-схемы искомого экрана, который наследует класс ``ScreenAccessibility``, например:
 ///
 /// ``` swift
-/// Accessibility-схема экрана пользователя
+/// // Accessibility-схема экрана пользователя
 /// class UserAccessibility: ScreenAccessibility {
 ///
 ///     let name = TextAccessibility()
@@ -136,6 +136,9 @@ import XCTest
 ///     .assert(text: "iOS") // проверка текста тега
 /// ```
 ///
+/// > Important: Чтобы получать элементы списка по уточняющей строке в тестах,
+/// эта строка должна быть предварительно установлена вместе с accessibility-ключом (см. ``AccessibilityKey``).
+///
 ///
 /// ## Компоненты неизвестного типа
 ///
@@ -173,59 +176,12 @@ import XCTest
 /// - ``TestingList``
 @MainActor
 @dynamicMemberLookup
-public struct TestingElement<Accessibility: AnyObject> {
+public struct TestingElement<Accessibility: AnyObject>: Testing {
 
     internal let keyPaths: [AnyKeyPath]
 
     /// Обернутый объект `XCUIElement`.
     public let element: XCUIElement
-
-    /// Выполняет указанное действие в виде замыкания.
-    ///
-    /// Метод может быть полезен в случаях, когда нужно выполнить действия с дочерними компонентами,
-    /// затем продолжить выполнять действия с самим компонентом, не прерывая цепочку.
-    ///
-    /// Например:
-    ///
-    /// ``` swift
-    /// cell
-    ///     .perform { $0.title.assert(text: user.fullName) }
-    ///     .perform { $0.subtitle.assert(text: user.position) }
-    /// ```
-    ///
-    /// - Parameter action: Действие в виде замыкания.
-    /// - Returns: Экземпляр тестируемого элемента.
-    @discardableResult
-    public func perform(_ action: (Self) -> Void) -> Self {
-        action(self)
-
-        return self
-    }
-
-    /// Выполняет указанное действие в виде замыкания.
-    ///
-    /// Метод может быть полезен в случаях, когда нужно выполнить действия с другими элементами,
-    /// затем продолжить выполнять действия с самим компонентом, не прерывая цепочку.
-    ///
-    /// Например:
-    ///
-    /// ``` swift
-    /// screen
-    ///     .searchField
-    ///     .tap()
-    ///     .waitForFocused()
-    ///     .perform { usersScreen.swipeUp() }
-    ///     .waitForUnfocused()
-    /// ```
-    ///
-    /// - Parameter action: Действие в виде замыкания.
-    /// - Returns: Экземпляр тестируемого элемента.
-    @discardableResult
-    public func perform(_ action: () -> Void) -> Self {
-        action()
-
-        return self
-    }
 
     /// Получает тестируемое представление дочернего компонента.
     ///

@@ -22,7 +22,7 @@ import Foundation
 ///     let user: User
 ///
 ///     var body: some View {
-///         VStack(spacing: .zero) {
+///         VStack(spacing: 4) {
 ///             Text(user.fullName)
 ///                 .font(.largeTitle)
 ///                 // Установка ключа для имени пользователя
@@ -33,9 +33,7 @@ import Foundation
 ///                 .foregroundStyle(.secondary)
 ///                 // Установка ключа для должности пользователя
 ///                 .accessibilityKey(\UserAccessibility.position)
-///                 .padding(.top, 4)
 ///         }
-///         .padding(16)
 ///     }
 /// }
 ///
@@ -68,7 +66,7 @@ import Foundation
 ///
 ///     var body: some View {
 ///         ScrollView {
-///             VStack(spacing: .zero) {
+///             VStack(spacing: 4) {
 ///                 Text(user.fullName)
 ///                     .font(.largeTitle)
 ///                     // Установка ключа для имени пользователя
@@ -79,7 +77,6 @@ import Foundation
 ///                     .foregroundStyle(.secondary)
 ///                     // Установка ключа для должности пользователя
 ///                     .accessibilityKey(\UserAccessibility.content.position)
-///                     .padding(.top, 4)
 ///             }
 ///             .padding(16)
 ///         }
@@ -119,7 +116,7 @@ import Foundation
 ///
 ///     var body: some View {
 ///         ScrollView {
-///             VStack(spacing: .zero) {
+///             VStack(spacing: 4) {
 ///                 Text(user.fullName)
 ///                     .font(.largeTitle)
 ///                     // Установка ключа для имени пользователя
@@ -130,7 +127,6 @@ import Foundation
 ///                     .foregroundStyle(.secondary)
 ///                     // Установка ключа для должности пользователя
 ///                     .accessibilityKey(\UserAccessibility.content.position)
-///                     .padding(.top, 4)
 ///             }
 ///             .padding(16)
 ///         }

@@ -67,7 +67,7 @@ import XCTest
 /// - ``ScreenAccessibility``
 /// - ``AccessibilityKey``
 @MainActor
-public struct TestingList<Accessibility: ViewAccessibility> {
+public struct TestingList<Accessibility: ViewAccessibility>: Testing {
 
     internal let keyPaths: [AnyKeyPath]
 
@@ -75,7 +75,13 @@ public struct TestingList<Accessibility: ViewAccessibility> {
     public let element: XCUIElement
 
     /// Количество элементов в списке.
-    public var count: Int {
+    ///
+    /// Равен `nil` в случае, если список не найден или имеет некорректный тип.
+    public var count: Int? {
+        guard element.exists else {
+            return nil
+        }
+
         let subpredicates = keyPaths
             .map { $0.accessibilityIdentifier() }
             .map { NSPredicate(format: "identifier BEGINSWITH[c] %@", $0) }
@@ -89,8 +95,84 @@ public struct TestingList<Accessibility: ViewAccessibility> {
     }
 
     /// Индикатор отсутствия элементов в списке.
-    public var isEmpty: Bool {
-        count == .zero
+    ///
+    /// Равен `nil` в случае, если список не найден или имеет некорректный тип.
+    public var isEmpty: Bool? {
+        count.map { $0 == .zero }
+    }
+
+    /// Считает количество элементов, которые соответствуют условию.
+    ///
+    /// - Parameters predicate: Замыкание, определяющее условие.
+    /// - Returns: Количество элементов или `nil`, если список не найден или имеет некорректный тип.
+    public func count(where predicate: (TestingElement<Accessibility>) -> Bool) -> Int? {
+        guard let count else {
+            return nil
+        }
+
+        return (0..<count).count { index in
+            predicate(self[index])
+        }
+    }
+
+    /// Определяет наличие элемента в списке, которое соответствует условию.
+    ///
+    /// - Parameters predicate: Замыкание, определяющее условие.
+    /// - Returns: Наличие элемента в списке или `nil`, если список не найден.
+    public func contains(where predicate: (TestingElement<Accessibility>) -> Bool) -> Bool? {
+        guard let count else {
+            return nil
+        }
+
+        return (0..<count).contains { index in
+            predicate(self[index])
+        }
+    }
+
+    /// Определяет, что все элементы в списке соответствуют условию.
+    ///
+    /// Если список пуст, то возвращает `true`.
+    ///
+    /// - Parameters predicate: Замыкание, определяющее условие.
+    /// - Returns: Наличие элемента в списке или `nil`, если список не найден или имеет некорректный тип.
+    public func allSatisfy(_ predicate: (TestingElement<Accessibility>) -> Bool) -> Bool? {
+        guard let count else {
+            return nil
+        }
+
+        return (0..<count).allSatisfy { index in
+            predicate(self[index])
+        }
+    }
+
+    /// Получает первый элемент списка, который соответствует условию.
+    ///
+    /// - Parameters predicate: Замыкание, определяющее условие.
+    /// - Returns: Тестируемый элемент списка.
+    public func first(where predicate: (TestingElement<Accessibility>) -> Bool) -> TestingElement<Accessibility>? {
+        guard let count else {
+            return nil
+        }
+
+        return (0..<count)
+            .lazy
+            .map { self[$0] }
+            .first { predicate($0) }
+    }
+
+    /// Получает последний элемент списка, который соответствует условию.
+    ///
+    /// - Parameters predicate: Замыкание, определяющее условие.
+    /// - Returns: Тестируемый элемент списка.
+    public func last(where predicate: (TestingElement<Accessibility>) -> Bool) -> TestingElement<Accessibility>? {
+        guard let count else {
+            return nil
+        }
+
+        return (0..<count)
+            .lazy
+            .map { self[$0] }
+            .last { predicate($0) }
     }
 
     /// Проверяет, что количество элементов в списке равно указанному.

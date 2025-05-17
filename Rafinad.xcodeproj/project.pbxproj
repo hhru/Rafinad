@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0186F102DDE599B004D6EEB /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0186F0F2DDE5998004D6EEB /* Testing.swift */; };
+		C0186F112DDE599B004D6EEB /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0186F0F2DDE5998004D6EEB /* Testing.swift */; };
+		C0186F122DDE599B004D6EEB /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0186F0F2DDE5998004D6EEB /* Testing.swift */; };
+		C0186F132DDE599B004D6EEB /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0186F0F2DDE5998004D6EEB /* Testing.swift */; };
+		C03007AA2DE2515C00C30873 /* UIBarItem+AccessibilityKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03007A92DE2515700C30873 /* UIBarItem+AccessibilityKey.swift */; };
+		C03007AB2DE2515C00C30873 /* UIBarItem+AccessibilityKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03007A92DE2515700C30873 /* UIBarItem+AccessibilityKey.swift */; };
+		C03007AC2DE2515C00C30873 /* UIBarItem+AccessibilityKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03007A92DE2515700C30873 /* UIBarItem+AccessibilityKey.swift */; };
+		C03007AD2DE2515C00C30873 /* UIBarItem+AccessibilityKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03007A92DE2515700C30873 /* UIBarItem+AccessibilityKey.swift */; };
 		C043A26D2DCE331900F6C58A /* ViewAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CA7D692DCA5C9E002A744E /* ViewAccessibility.swift */; };
 		C043A26E2DCE331900F6C58A /* UIView+AccessibilityKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D226A92DCBDD870075DB31 /* UIView+AccessibilityKey.swift */; };
 		C043A2702DCE331900F6C58A /* AccessibilityKeyContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D226982DCBD83E0075DB31 /* AccessibilityKeyContent.swift */; };
@@ -337,6 +345,8 @@
 /* Begin PBXFileReference section */
 		C0007FFA23CBAAA5005F95E0 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		C010082725EEA6B700A2FF1A /* Rafinad.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rafinad.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C0186F0F2DDE5998004D6EEB /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
+		C03007A92DE2515700C30873 /* UIBarItem+AccessibilityKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarItem+AccessibilityKey.swift"; sourceTree = "<group>"; };
 		C043A2822DCE331900F6C58A /* Rafinad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rafinad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C043A2842DCE340800F6C58A /* NSView+AccessibilityKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+AccessibilityKey.swift"; sourceTree = "<group>"; };
 		C043A29E2DCE36B300F6C58A /* RafinadTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RafinadTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -587,6 +597,7 @@
 			isa = PBXGroup;
 			children = (
 				C0D226B32DCC1C0E0075DB31 /* Extensions */,
+				C0186F0F2DDE5998004D6EEB /* Testing.swift */,
 				C09275302DCA9DDF00BBC858 /* TestingElement.swift */,
 				C0D226A32DCBDB660075DB31 /* TestingList.swift */,
 			);
@@ -639,6 +650,7 @@
 		C0CA7D632DCA5C9E002A744E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C03007A92DE2515700C30873 /* UIBarItem+AccessibilityKey.swift */,
 				C0CA7D602DCA5C9E002A744E /* AnyKeyPath+AccessibilityKey.swift */,
 				C043A2842DCE340800F6C58A /* NSView+AccessibilityKey.swift */,
 				C0D226A92DCBDD870075DB31 /* UIView+AccessibilityKey.swift */,
@@ -1169,6 +1181,7 @@
 				C0C3C5A22DD5E9050058A201 /* ScreenAccessibility.swift in Sources */,
 				C043A27B2DCE331900F6C58A /* ImageAccessibility.swift in Sources */,
 				C043A2852DCE340E00F6C58A /* NSView+AccessibilityKey.swift in Sources */,
+				C03007AA2DE2515C00C30873 /* UIBarItem+AccessibilityKey.swift in Sources */,
 				C043A27C2DCE331900F6C58A /* SelectableAccessibility.swift in Sources */,
 				C0B54C302DD1D5F700969856 /* RotatableAccessibility.swift in Sources */,
 			);
@@ -1184,6 +1197,7 @@
 				C0B54C1D2DD1587400969856 /* TestingElement+Selectable.swift in Sources */,
 				C0B54C3D2DD1DAA400969856 /* TestingElement+Rotatable.swift in Sources */,
 				C0B54BF42DD0C6F900969856 /* TestingElement+Text.swift in Sources */,
+				C0186F112DDE599B004D6EEB /* Testing.swift in Sources */,
 				C0B54C2A2DD159DA00969856 /* TestingElement+Editable.swift in Sources */,
 				C043A3912DCE689A00F6C58A /* Character+Extensions.swift in Sources */,
 				C0B54C152DD14BD400969856 /* TestingElement+Any.swift in Sources */,
@@ -1228,6 +1242,7 @@
 				C0C3C5A42DD5E9050058A201 /* ScreenAccessibility.swift in Sources */,
 				C0D2272B2DCCF7E50075DB31 /* ImageAccessibility.swift in Sources */,
 				C043A2872DCE340E00F6C58A /* NSView+AccessibilityKey.swift in Sources */,
+				C03007AB2DE2515C00C30873 /* UIBarItem+AccessibilityKey.swift in Sources */,
 				C0CA7D822DCA5C9E002A744E /* SelectableAccessibility.swift in Sources */,
 				C0B54C312DD1D5F700969856 /* RotatableAccessibility.swift in Sources */,
 			);
@@ -1263,6 +1278,7 @@
 				C0C3C5A52DD5E9050058A201 /* ScreenAccessibility.swift in Sources */,
 				C0D2272A2DCCF7E50075DB31 /* ImageAccessibility.swift in Sources */,
 				C043A2882DCE340E00F6C58A /* NSView+AccessibilityKey.swift in Sources */,
+				C03007AC2DE2515C00C30873 /* UIBarItem+AccessibilityKey.swift in Sources */,
 				C0CA7D762DCA5C9E002A744E /* SelectableAccessibility.swift in Sources */,
 				C0B54C2F2DD1D5F700969856 /* RotatableAccessibility.swift in Sources */,
 			);
@@ -1289,6 +1305,7 @@
 				C0B54C1B2DD1587400969856 /* TestingElement+Selectable.swift in Sources */,
 				C0B54C3F2DD1DAA400969856 /* TestingElement+Rotatable.swift in Sources */,
 				C0B54BF32DD0C6F900969856 /* TestingElement+Text.swift in Sources */,
+				C0186F102DDE599B004D6EEB /* Testing.swift in Sources */,
 				C0B54C2B2DD159DA00969856 /* TestingElement+Editable.swift in Sources */,
 				C043A3952DCE689A00F6C58A /* Character+Extensions.swift in Sources */,
 				C0B54C162DD14BD400969856 /* TestingElement+Any.swift in Sources */,
@@ -1313,6 +1330,7 @@
 				C0B54C1C2DD1587400969856 /* TestingElement+Selectable.swift in Sources */,
 				C0B54C402DD1DAA400969856 /* TestingElement+Rotatable.swift in Sources */,
 				C0B54BF52DD0C6F900969856 /* TestingElement+Text.swift in Sources */,
+				C0186F132DDE599B004D6EEB /* Testing.swift in Sources */,
 				C0B54C2C2DD159DA00969856 /* TestingElement+Editable.swift in Sources */,
 				C043A3972DCE689A00F6C58A /* Character+Extensions.swift in Sources */,
 				C0B54C172DD14BD400969856 /* TestingElement+Any.swift in Sources */,
@@ -1342,6 +1360,7 @@
 				C0B54BF62DD0C6F900969856 /* TestingElement+Text.swift in Sources */,
 				C0B54C292DD159DA00969856 /* TestingElement+Editable.swift in Sources */,
 				C043A3932DCE689A00F6C58A /* Character+Extensions.swift in Sources */,
+				C03007AD2DE2515C00C30873 /* UIBarItem+AccessibilityKey.swift in Sources */,
 				C043A3942DCE689A00F6C58A /* RangeReplaceableCollection+Extensions.swift in Sources */,
 				C0D2270A2DCCC26C0075DB31 /* TestingElement+View.swift in Sources */,
 				C043A2862DCE340E00F6C58A /* NSView+AccessibilityKey.swift in Sources */,
@@ -1355,6 +1374,7 @@
 				C0D227282DCCD63C0075DB31 /* Documentation.docc in Sources */,
 				C0D227202DCCC2860075DB31 /* AccessibilityKey.swift in Sources */,
 				C0B54C3E2DD1DAA400969856 /* TestingElement+Rotatable.swift in Sources */,
+				C0186F122DDE599B004D6EEB /* Testing.swift in Sources */,
 				C0D227212DCCC2860075DB31 /* TextAccessibility.swift in Sources */,
 				C0B54C202DD158B100969856 /* TestingElement+Internal.swift in Sources */,
 				C0B54C242DD1592C00969856 /* TestingElement+Swipeable.swift in Sources */,
