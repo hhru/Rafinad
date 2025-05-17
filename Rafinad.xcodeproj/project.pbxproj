@@ -196,7 +196,7 @@
 			containerPortal = C057F00523CB8EEB00C2D895 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C043A2892DCE36B300F6C58A;
-			remoteInfo = "Rafinad Tesing macOS";
+			remoteInfo = "Rafinad Testing macOS";
 		};
 		C043A2C02DCE37D700F6C58A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -231,7 +231,7 @@
 			containerPortal = C057F00523CB8EEB00C2D895 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C0CA7D462DCA5BB3002A744E;
-			remoteInfo = "Rafinad Tesing iOS";
+			remoteInfo = "Rafinad Testing iOS";
 		};
 		C0D226BF2DCC1D250075DB31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -711,9 +711,9 @@
 			productReference = C043A2822DCE331900F6C58A /* Rafinad.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		C043A2892DCE36B300F6C58A /* Rafinad Tesing macOS */ = {
+		C043A2892DCE36B300F6C58A /* Rafinad Testing macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C043A29B2DCE36B300F6C58A /* Build configuration list for PBXNativeTarget "Rafinad Tesing macOS" */;
+			buildConfigurationList = C043A29B2DCE36B300F6C58A /* Build configuration list for PBXNativeTarget "Rafinad Testing macOS" */;
 			buildPhases = (
 				C043A28C2DCE36B300F6C58A /* SwiftLint */,
 				C043A28D2DCE36B300F6C58A /* Sources */,
@@ -726,7 +726,7 @@
 			dependencies = (
 				C043A2CA2DCE381D00F6C58A /* PBXTargetDependency */,
 			);
-			name = "Rafinad Tesing macOS";
+			name = "Rafinad Testing macOS";
 			productName = Rafinad;
 			productReference = C043A29E2DCE36B300F6C58A /* RafinadTesting.framework */;
 			productType = "com.apple.product-type.framework";
@@ -827,9 +827,9 @@
 			productReference = C0A01A4F23CB92EB00AC2C3A /* RafinadTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C0CA7D462DCA5BB3002A744E /* Rafinad Tesing iOS */ = {
+		C0CA7D462DCA5BB3002A744E /* Rafinad Testing iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C0CA7D4B2DCA5BB3002A744E /* Build configuration list for PBXNativeTarget "Rafinad Tesing iOS" */;
+			buildConfigurationList = C0CA7D4B2DCA5BB3002A744E /* Build configuration list for PBXNativeTarget "Rafinad Testing iOS" */;
 			buildPhases = (
 				C0CA7D472DCA5BB3002A744E /* SwiftLint */,
 				C0CA7D482DCA5BB3002A744E /* Sources */,
@@ -842,7 +842,7 @@
 			dependencies = (
 				C0D226C42DCC1D290075DB31 /* PBXTargetDependency */,
 			);
-			name = "Rafinad Tesing iOS";
+			name = "Rafinad Testing iOS";
 			productName = Rafinad;
 			productReference = C0CA7D4E2DCA5BB3002A744E /* RafinadTesting.framework */;
 			productType = "com.apple.product-type.framework";
@@ -929,8 +929,8 @@
 				C057F00D23CB8EEB00C2D895 /* Rafinad iOS */,
 				C043A26A2DCE331900F6C58A /* Rafinad macOS */,
 				C0A01A4623CB92EB00AC2C3A /* Rafinad tvOS */,
-				C0CA7D462DCA5BB3002A744E /* Rafinad Tesing iOS */,
-				C043A2892DCE36B300F6C58A /* Rafinad Tesing macOS */,
+				C0CA7D462DCA5BB3002A744E /* Rafinad Testing iOS */,
+				C043A2892DCE36B300F6C58A /* Rafinad Testing macOS */,
 				C0CA7D502DCA5C16002A744E /* Rafinad Testing tvOS */,
 				C057F01623CB8EEB00C2D895 /* Rafinad Tests iOS */,
 				C043A2A42DCE379200F6C58A /* Rafinad Tests macOS */,
@@ -1379,7 +1379,7 @@
 		};
 		C043A2BD2DCE37CF00F6C58A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C043A2892DCE36B300F6C58A /* Rafinad Tesing macOS */;
+			target = C043A2892DCE36B300F6C58A /* Rafinad Testing macOS */;
 			targetProxy = C043A2BC2DCE37CF00F6C58A /* PBXContainerItemProxy */;
 		};
 		C043A2C12DCE37D700F6C58A /* PBXTargetDependency */ = {
@@ -1404,7 +1404,7 @@
 		};
 		C08113692DCDF44000C83BD0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C0CA7D462DCA5BB3002A744E /* Rafinad Tesing iOS */;
+			target = C0CA7D462DCA5BB3002A744E /* Rafinad Testing iOS */;
 			targetProxy = C08113682DCDF44000C83BD0 /* PBXContainerItemProxy */;
 		};
 		C0D226C02DCC1D250075DB31 /* PBXTargetDependency */ = {
@@ -2083,7 +2083,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C043A29B2DCE36B300F6C58A /* Build configuration list for PBXNativeTarget "Rafinad Tesing macOS" */ = {
+		C043A29B2DCE36B300F6C58A /* Build configuration list for PBXNativeTarget "Rafinad Testing macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C043A29C2DCE36B300F6C58A /* Debug */,
@@ -2146,7 +2146,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C0CA7D4B2DCA5BB3002A744E /* Build configuration list for PBXNativeTarget "Rafinad Tesing iOS" */ = {
+		C0CA7D4B2DCA5BB3002A744E /* Build configuration list for PBXNativeTarget "Rafinad Testing iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C0CA7D4C2DCA5BB3002A744E /* Debug */,

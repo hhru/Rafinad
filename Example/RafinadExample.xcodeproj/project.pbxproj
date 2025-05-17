@@ -69,7 +69,7 @@
 			containerPortal = C0CA7D2D2DCA4A88002A744E /* Rafinad.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C0CA7D4E2DCA5BB3002A744E;
-			remoteInfo = "Rafinad Tesing iOS";
+			remoteInfo = "Rafinad Testing iOS";
 		};
 		C03D7FA02DCDF3A500C33A84 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -111,7 +111,7 @@
 			containerPortal = C0CA7D2D2DCA4A88002A744E /* Rafinad.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C043A29E2DCE36B300F6C58A;
-			remoteInfo = "Rafinad Tesing macOS";
+			remoteInfo = "Rafinad Testing macOS";
 		};
 		C043A2D92DCE391B00F6C58A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -132,7 +132,7 @@
 			containerPortal = C0CA7D2D2DCA4A88002A744E /* Rafinad.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = C0CA7D462DCA5BB3002A744E;
-			remoteInfo = "Rafinad Tesing iOS";
+			remoteInfo = "Rafinad Testing iOS";
 		};
 		C0E4DA802DCA804000BAE067 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -665,7 +665,7 @@
 		};
 		C08113752DCDF4A500C83BD0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Rafinad Tesing iOS";
+			name = "Rafinad Testing iOS";
 			targetProxy = C08113742DCDF4A500C83BD0 /* PBXContainerItemProxy */;
 		};
 		C0E4DA812DCA804000BAE067 /* PBXTargetDependency */ = {

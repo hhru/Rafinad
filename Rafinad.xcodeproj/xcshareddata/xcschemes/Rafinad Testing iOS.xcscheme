@@ -17,7 +17,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C0CA7D462DCA5BB3002A744E"
                BuildableName = "RafinadTesting.framework"
-               BlueprintName = "Rafinad Tesing iOS"
+               BlueprintName = "Rafinad Testing iOS"
                ReferencedContainer = "container:Rafinad.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -71,7 +71,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C0CA7D462DCA5BB3002A744E"
             BuildableName = "RafinadTesting.framework"
-            BlueprintName = "Rafinad Tesing iOS"
+            BlueprintName = "Rafinad Testing iOS"
             ReferencedContainer = "container:Rafinad.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
