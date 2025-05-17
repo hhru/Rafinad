@@ -22,6 +22,9 @@ jobs:
       IOS_SCHEME: Rafinad Testing iOS
       IOS_DESTINATION: OS=18.0,name=iPhone 16
       IOS_RESULT_PATH: xcodebuild-ios.xcresult
+      MACOS_SCHEME: Rafinad Testing macOS
+      MACOS_DESTINATION: platform=macOS
+      MACOS_RESULT_PATH: xcodebuild-macos.xcresult
       TVOS_SCHEME: Rafinad Testing tvOS
       TVOS_DESTINATION: OS=18.0,name=Apple TV
       TVOS_RESULT_PATH: xcodebuild-tvos.xcresult
@@ -41,11 +44,31 @@ jobs:
           swift --version
       - name: Test iOS
         run: |
-          xcodebuild clean build test -project "$XCODE_PROJECT" -scheme "$IOS_SCHEME" -destination "$IOS_DESTINATION" -resultBundlePath "$IOS_RESULT_PATH" | xcpretty -f `xcpretty-json-formatter`
+        run: |
+          xcodebuild clean build test \
+            -project "$XCODE_PROJECT" \
+            -scheme "$IOS_SCHEME" \
+            -destination "$IOS_DESTINATION" \
+            -resultBundlePath "$IOS_RESULT_PATH" | xcpretty -f `xcpretty-json-formatter`
+
+          bash <(curl -s https://codecov.io/bash) -cF ios -J 'Rafinad'
+      - name: Test macOS
+        run: |
+          xcodebuild clean build test \
+            -project "$XCODE_PROJECT" \
+            -scheme "$MACOS_SCHEME" \
+            -destination "$MACOS_DESTINATION" \
+            -resultBundlePath "$MACOS_RESULT_PATH" | xcpretty -f `xcpretty-json-formatter`
+
           bash <(curl -s https://codecov.io/bash) -cF ios -J 'Rafinad'
       - name: Test tvOS
         run: |
-          xcodebuild clean build test -project "$XCODE_PROJECT" -scheme "$TVOS_SCHEME" -destination "$TVOS_DESTINATION" -resultBundlePath "$TVOS_RESULT_PATH" | xcpretty -f `xcpretty-json-formatter`
+          xcodebuild clean build test \
+            -project "$XCODE_PROJECT" \
+            -scheme "$TVOS_SCHEME" \
+            -destination "$TVOS_DESTINATION" \
+            -resultBundlePath "$TVOS_RESULT_PATH" | xcpretty -f `xcpretty-json-formatter`
+          
           bash <(curl -s https://codecov.io/bash) -cF tvos -J 'Rafinad'
       - name: Danger
         run: bundle exec danger --remove-previous-comments
