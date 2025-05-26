@@ -265,3 +265,16 @@ extension TestingElement: CustomDebugStringConvertible {
         element.debugDescription
     }
 }
+
+extension TestingElement {
+
+    /// Создает тестируемое представление элемента с заданным объектом `XCUIElement`.
+    ///
+    /// - Parameter element: Оборачиваемый объект `XCUIElement`.
+    public init(element: XCUIElement) {
+        self.init(
+            keyPaths: [\Accessibility.self],
+            element: element
+        )
+    }
+}

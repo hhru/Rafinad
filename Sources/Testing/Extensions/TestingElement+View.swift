@@ -20,16 +20,6 @@ extension TestingElement where Accessibility: ViewAccessibility {
         element.exists
     }
 
-    /// Создает тестируемое представление компонента с заданным объектом `XCUIElement`.
-    ///
-    /// - Parameter element: Оборачиваемый объект `XCUIElement`.
-    public init(element: XCUIElement) {
-        self.init(
-            keyPaths: [\Accessibility.self],
-            element: element
-        )
-    }
-
     /// Проверяет, что фрейм компонента равен указанному.
     ///
     /// - Parameters:

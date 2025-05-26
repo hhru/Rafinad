@@ -16,16 +16,6 @@ extension TestingElement where Accessibility: ScreenAccessibility {
             element: application
         )
     }
-
-    /// Создает тестируемое представление экрана с заданным объектом `XCUIElement`.
-    ///
-    /// - Parameter element: Оборачиваемый объект `XCUIElement`.
-    public init(element: XCUIElement) {
-        self.init(
-            keyPaths: [\Accessibility.self],
-            element: element
-        )
-    }
 }
 
 extension XCUIElement {
