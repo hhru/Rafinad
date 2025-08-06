@@ -57,15 +57,14 @@ extension TestingElement where Accessibility: DisableableAccessibility {
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> Self {
-        if !element.wait(for: \.isContentEnabled, toEqual: false, timeout: timeout), failing {
-            XCTFail(
-                "Element \(element) was not disabled within \(timeout) seconds",
-                file: file,
-                line: line
-            )
-        }
-
-        return self
+        wait(
+            for: isEnabled == false,
+            timeout: timeout,
+            failing: failing,
+            message: "Element \(element) was not disabled within \(timeout) seconds",
+            file: file,
+            line: line
+        )
     }
 
     /// Ждет указанное время, пока компонент не станет включенным.
@@ -87,15 +86,14 @@ extension TestingElement where Accessibility: DisableableAccessibility {
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> Self {
-        if !element.wait(for: \.isContentEnabled, toEqual: true, timeout: timeout), failing {
-            XCTFail(
-                "Element \(element) was not enabled within \(timeout) seconds",
-                file: file,
-                line: line
-            )
-        }
-
-        return self
+        wait(
+            for: isEnabled == true,
+            timeout: timeout,
+            failing: failing,
+            message: "Element \(element) was not enabled within \(timeout) seconds",
+            file: file,
+            line: line
+        )
     }
 }
 

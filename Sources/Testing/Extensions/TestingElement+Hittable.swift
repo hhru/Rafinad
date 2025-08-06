@@ -57,15 +57,14 @@ extension TestingElement where Accessibility: ViewAccessibility {
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> Self {
-        if !element.wait(for: \.isHittable, toEqual: true, timeout: timeout), failing {
-            XCTFail(
-                "Element \(element) was not hittable within \(timeout) seconds",
-                file: file,
-                line: line
-            )
-        }
-
-        return self
+        wait(
+            for: isHittable == true,
+            timeout: timeout,
+            failing: failing,
+            message: "Element \(element) was not hittable within \(timeout) seconds",
+            file: file,
+            line: line
+        )
     }
 
     /// Ждет указанное время, пока компонент не перестанет быть доступным для касаний.
@@ -87,15 +86,14 @@ extension TestingElement where Accessibility: ViewAccessibility {
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> Self {
-        if !element.wait(for: \.isHittable, toEqual: false, timeout: timeout), failing {
-            XCTFail(
-                "Element \(element) was hittable within \(timeout) seconds",
-                file: file,
-                line: line
-            )
-        }
-
-        return self
+        wait(
+            for: isHittable == false,
+            timeout: timeout,
+            failing: failing,
+            message: "Element \(element) was hittable within \(timeout) seconds",
+            file: file,
+            line: line
+        )
     }
 
     #if os(iOS)
