@@ -126,15 +126,19 @@ extension Testing {
             return self
         }
 
+        var pollInterval = 0.2
         let timeoutDate = Date(timeIntervalSinceNow: timeout)
-        let pollInterval = 0.1
 
         while Date() < timeoutDate {
-            RunLoop.current.run(until: Date(timeIntervalSinceNow: pollInterval))
+            let waitDuration = min(pollInterval, timeoutDate.timeIntervalSinceNow)
+
+            RunLoop.current.run(until: Date(timeIntervalSinceNow: waitDuration))
 
             if condition() {
                 return self
             }
+
+            pollInterval = min(pollInterval * 1.5, 2.0)
         }
 
         if failing {
