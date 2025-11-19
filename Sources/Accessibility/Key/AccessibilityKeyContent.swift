@@ -36,6 +36,6 @@ extension AccessibilityKeyContent {
         _ keyPath: KeyPath<Root, Value>,
         item: String? = nil
     ) -> Self where Value.Element: ViewAccessibility {
-        Self(keyPath: keyPath, rawValue: item)
+        Self(keyPath: keyPath, rawValue: item ?? "")
     }
 }

@@ -15,6 +15,9 @@
 		C03007AB2DE2515C00C30873 /* UIBarItem+AccessibilityKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03007A92DE2515700C30873 /* UIBarItem+AccessibilityKey.swift */; };
 		C03007AC2DE2515C00C30873 /* UIBarItem+AccessibilityKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03007A92DE2515700C30873 /* UIBarItem+AccessibilityKey.swift */; };
 		C03007AD2DE2515C00C30873 /* UIBarItem+AccessibilityKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03007A92DE2515700C30873 /* UIBarItem+AccessibilityKey.swift */; };
+		C03830942E4B248D003776D2 /* TestAccessibilityWithComputedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03830932E4B2482003776D2 /* TestAccessibilityWithComputedProperty.swift */; };
+		C03830952E4B248D003776D2 /* TestAccessibilityWithComputedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03830932E4B2482003776D2 /* TestAccessibilityWithComputedProperty.swift */; };
+		C03830962E4B248D003776D2 /* TestAccessibilityWithComputedProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03830932E4B2482003776D2 /* TestAccessibilityWithComputedProperty.swift */; };
 		C043A26D2DCE331900F6C58A /* ViewAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CA7D692DCA5C9E002A744E /* ViewAccessibility.swift */; };
 		C043A26E2DCE331900F6C58A /* UIView+AccessibilityKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D226A92DCBDD870075DB31 /* UIView+AccessibilityKey.swift */; };
 		C043A2702DCE331900F6C58A /* AccessibilityKeyContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D226982DCBD83E0075DB31 /* AccessibilityKeyContent.swift */; };
@@ -189,6 +192,9 @@
 		C0D2272A2DCCF7E50075DB31 /* ImageAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D227292DCCF7E00075DB31 /* ImageAccessibility.swift */; };
 		C0D2272B2DCCF7E50075DB31 /* ImageAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D227292DCCF7E00075DB31 /* ImageAccessibility.swift */; };
 		C0D2272C2DCCF7E50075DB31 /* ImageAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D227292DCCF7E00075DB31 /* ImageAccessibility.swift */; };
+		C0EBEE7B2ECDD6EA006691B2 /* TestAccessibilityWithArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EBEE7A2ECDD6E4006691B2 /* TestAccessibilityWithArrays.swift */; };
+		C0EBEE7C2ECDD6EA006691B2 /* TestAccessibilityWithArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EBEE7A2ECDD6E4006691B2 /* TestAccessibilityWithArrays.swift */; };
+		C0EBEE7D2ECDD6EA006691B2 /* TestAccessibilityWithArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EBEE7A2ECDD6E4006691B2 /* TestAccessibilityWithArrays.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -347,6 +353,7 @@
 		C010082725EEA6B700A2FF1A /* Rafinad.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rafinad.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C0186F0F2DDE5998004D6EEB /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 		C03007A92DE2515700C30873 /* UIBarItem+AccessibilityKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarItem+AccessibilityKey.swift"; sourceTree = "<group>"; };
+		C03830932E4B2482003776D2 /* TestAccessibilityWithComputedProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAccessibilityWithComputedProperty.swift; sourceTree = "<group>"; };
 		C043A2822DCE331900F6C58A /* Rafinad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rafinad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C043A2842DCE340800F6C58A /* NSView+AccessibilityKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+AccessibilityKey.swift"; sourceTree = "<group>"; };
 		C043A29E2DCE36B300F6C58A /* RafinadTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RafinadTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -419,6 +426,7 @@
 		C0E97A692BC6DFA000CF37A7 /* .xcode-runtime-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".xcode-runtime-version"; sourceTree = "<group>"; };
 		C0E97A6A2BC6DFA000CF37A7 /* .xcode-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".xcode-version"; sourceTree = "<group>"; };
 		C0E97A6B2BC6DFA000CF37A7 /* .system-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".system-version"; sourceTree = "<group>"; };
+		C0EBEE7A2ECDD6E4006691B2 /* TestAccessibilityWithArrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAccessibilityWithArrays.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -618,6 +626,8 @@
 			isa = PBXGroup;
 			children = (
 				C0C3C5872DD5DEEA0058A201 /* TestAccessibility.swift */,
+				C0EBEE7A2ECDD6E4006691B2 /* TestAccessibilityWithArrays.swift */,
+				C03830932E4B2482003776D2 /* TestAccessibilityWithComputedProperty.swift */,
 				C0C3C58B2DD5DF390058A201 /* TestAccessibilityWithNestedAccessibility.swift */,
 				C0C3C58F2DD5DF4B0058A201 /* TestAccessibilityWithNestedGroup.swift */,
 			);
@@ -1216,9 +1226,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03830962E4B248D003776D2 /* TestAccessibilityWithComputedProperty.swift in Sources */,
 				C0C3C58D2DD5DF3A0058A201 /* TestAccessibilityWithNestedAccessibility.swift in Sources */,
 				C0C3C5902DD5DF4B0058A201 /* TestAccessibilityWithNestedGroup.swift in Sources */,
 				C0C3C5892DD5DF2C0058A201 /* TestAccessibility.swift in Sources */,
+				C0EBEE7C2ECDD6EA006691B2 /* TestAccessibilityWithArrays.swift in Sources */,
 				C0B54BBD2DCF89DB00969856 /* AccessibilityKeyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1252,9 +1264,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03830942E4B248D003776D2 /* TestAccessibilityWithComputedProperty.swift in Sources */,
 				C0C3C58E2DD5DF3A0058A201 /* TestAccessibilityWithNestedAccessibility.swift in Sources */,
 				C0C3C5922DD5DF4B0058A201 /* TestAccessibilityWithNestedGroup.swift in Sources */,
 				C0C3C5882DD5DF2C0058A201 /* TestAccessibility.swift in Sources */,
+				C0EBEE7D2ECDD6EA006691B2 /* TestAccessibilityWithArrays.swift in Sources */,
 				C0B54BBC2DCF89DB00969856 /* AccessibilityKeyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1288,9 +1302,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03830952E4B248D003776D2 /* TestAccessibilityWithComputedProperty.swift in Sources */,
 				C0C3C58C2DD5DF3A0058A201 /* TestAccessibilityWithNestedAccessibility.swift in Sources */,
 				C0C3C5912DD5DF4B0058A201 /* TestAccessibilityWithNestedGroup.swift in Sources */,
 				C0C3C58A2DD5DF2C0058A201 /* TestAccessibility.swift in Sources */,
+				C0EBEE7B2ECDD6EA006691B2 /* TestAccessibilityWithArrays.swift in Sources */,
 				C0B54BBE2DCF89DB00969856 /* AccessibilityKeyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

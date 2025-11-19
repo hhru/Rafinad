@@ -74,6 +74,28 @@ public struct TestingList<Accessibility: ViewAccessibility>: Testing {
     /// Объект `XCUIElement` родительского UI-компонента.
     public let element: XCUIElement
 
+    /// Первый элемент списка.
+    ///
+    /// Равен `nil` в случае, если список не найден или имеет некорректный тип.
+    public var first: TestingElement<Accessibility>? {
+        guard count != nil else {
+            return nil
+        }
+
+        return self[0]
+    }
+
+    /// Последний элемент списка.
+    ///
+    /// Равен `nil` в случае, если список не найден или имеет некорректный тип.
+    public var last: TestingElement<Accessibility>? {
+        guard let count else {
+            return nil
+        }
+
+        return self[count - 1]
+    }
+
     /// Количество элементов в списке.
     ///
     /// Равен `nil` в случае, если список не найден или имеет некорректный тип.
@@ -82,16 +104,7 @@ public struct TestingList<Accessibility: ViewAccessibility>: Testing {
             return nil
         }
 
-        let subpredicates = keyPaths
-            .map { $0.accessibilityIdentifier() }
-            .map { NSPredicate(format: "identifier BEGINSWITH[c] %@", $0) }
-
-        let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: subpredicates)
-
-        return element
-            .descendants(matching: .any)
-            .matching(predicate)
-            .count
+        return elementsQuery.count
     }
 
     /// Индикатор отсутствия элементов в списке.
@@ -249,18 +262,7 @@ public struct TestingList<Accessibility: ViewAccessibility>: Testing {
     /// - Parameter item: Индекс элемента.
     /// - Returns: Тестируемый элемент списка.
     public subscript(item: Int) -> TestingElement<Accessibility> {
-        let subpredicates = keyPaths
-            .map { $0.accessibilityIdentifier() }
-            .map { NSPredicate(format: "identifier BEGINSWITH[c] %@", $0) }
-
-        let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: subpredicates)
-
-        let element = element
-            .descendants(matching: .any)
-            .matching(predicate)
-            .element(boundBy: item)
-
-        return TestingElement(element: element)
+        TestingElement(element: elementsQuery.element(boundBy: item))
     }
 }
 
@@ -268,5 +270,20 @@ extension TestingList: CustomDebugStringConvertible {
 
     public nonisolated var debugDescription: String {
         element.debugDescription
+    }
+}
+
+extension TestingList {
+
+    private var elementsQuery: XCUIElementQuery {
+        let subpredicates = keyPaths
+            .map { $0.accessibilityIdentifier() }
+            .map { NSPredicate(format: "identifier BEGINSWITH[c] %@", "\($0)[") }
+
+        let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: subpredicates)
+
+        return element
+            .descendants(matching: .any)
+            .matching(predicate)
     }
 }
