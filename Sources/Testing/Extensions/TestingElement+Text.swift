@@ -59,15 +59,14 @@ extension TestingElement where Accessibility: TextAccessibility {
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> Self {
-        if !element.wait(for: \.contentText, toEqual: text, timeout: timeout), failing {
-            XCTFail(
-                "Text of element \(element) was not equal to \(text) within \(timeout) seconds",
-                file: file,
-                line: line
-            )
-        }
-
-        return self
+        wait(
+            for: self.text == text,
+            timeout: timeout,
+            failing: failing,
+            message: "Text of element \(element) was not equal to \(text) within \(timeout) seconds",
+            file: file,
+            line: line
+        )
     }
 }
 

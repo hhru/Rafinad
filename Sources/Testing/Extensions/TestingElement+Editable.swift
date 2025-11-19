@@ -123,15 +123,14 @@ extension TestingElement where Accessibility: EditableAccessibility {
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> Self {
-        if !element.wait(for: \.contentText, toEqual: text, timeout: timeout), failing {
-            XCTFail(
-                "Text of element \(element) was not equal to \(text) within \(timeout) seconds",
-                file: file,
-                line: line
-            )
-        }
-
-        return self
+        wait(
+            for: self.text == text,
+            timeout: timeout,
+            failing: failing,
+            message: "Text of element \(element) was not equal to \(text) within \(timeout) seconds",
+            file: file,
+            line: line
+        )
     }
 
     /// Ждет указанное время, пока текст-заполнитель компонента не станет равен указанному.
@@ -155,15 +154,14 @@ extension TestingElement where Accessibility: EditableAccessibility {
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> Self {
-        if !element.wait(for: \.contentPlaceholder, toEqual: placeholder, timeout: timeout), failing {
-            XCTFail(
-                "Placeholder of element \(element) was not equal to \(placeholder) within \(timeout) seconds",
-                file: file,
-                line: line
-            )
-        }
-
-        return self
+        wait(
+            for: self.placeholder == placeholder,
+            timeout: timeout,
+            failing: failing,
+            message: "Placeholder of element \(element) was not equal to \(placeholder) within \(timeout) seconds",
+            file: file,
+            line: line
+        )
     }
 
     /// Ждет указанное время, пока компонент не получит фокус.
@@ -185,15 +183,14 @@ extension TestingElement where Accessibility: EditableAccessibility {
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> Self {
-        if !element.wait(for: \.isContentFocused, toEqual: true, timeout: timeout), failing {
-            XCTFail(
-                "Element \(element) was not focused within \(timeout) seconds",
-                file: file,
-                line: line
-            )
-        }
-
-        return self
+        wait(
+            for: isFocused == true,
+            timeout: timeout,
+            failing: failing,
+            message: "Element \(element) was not focused within \(timeout) seconds",
+            file: file,
+            line: line
+        )
     }
 
     /// Ждет указанное время, пока компонент не потеряет фокус.
@@ -215,15 +212,14 @@ extension TestingElement where Accessibility: EditableAccessibility {
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> Self {
-        if !element.wait(for: \.isContentFocused, toEqual: false, timeout: timeout), failing {
-            XCTFail(
-                "Element \(element) was not unfocused within \(timeout) seconds",
-                file: file,
-                line: line
-            )
-        }
-
-        return self
+        wait(
+            for: isFocused == false,
+            timeout: timeout,
+            failing: failing,
+            message: "Element \(element) was not unfocused within \(timeout) seconds",
+            file: file,
+            line: line
+        )
     }
 
     /// Вводит указанный текст с клавиатуры.

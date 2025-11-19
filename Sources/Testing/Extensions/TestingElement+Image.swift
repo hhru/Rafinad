@@ -59,15 +59,14 @@ extension TestingElement where Accessibility: ImageAccessibility {
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> Self {
-        if !element.wait(for: \.contentLabel, toEqual: label, timeout: timeout), failing {
-            XCTFail(
-                "Label of element \(element) was not equal to \(label) within \(timeout) seconds",
-                file: file,
-                line: line
-            )
-        }
-
-        return self
+        wait(
+            for: self.label == label,
+            timeout: timeout,
+            failing: failing,
+            message: "Label of element \(element) was not equal to \(label) within \(timeout) seconds",
+            file: file,
+            line: line
+        )
     }
 }
 

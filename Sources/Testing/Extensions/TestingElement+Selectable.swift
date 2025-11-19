@@ -57,15 +57,14 @@ extension TestingElement where Accessibility: SelectableAccessibility {
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> Self {
-        if !element.wait(for: \.isContentSelected, toEqual: true, timeout: timeout), failing {
-            XCTFail(
-                "Element \(element) was not selected within \(timeout) seconds",
-                file: file,
-                line: line
-            )
-        }
-
-        return self
+        wait(
+            for: isSelected == true,
+            timeout: timeout,
+            failing: failing,
+            message: "Element \(element) was not selected within \(timeout) seconds",
+            file: file,
+            line: line
+        )
     }
 
     /// Ждет указанное время, пока компонент не перестанет быть выбранным.
@@ -87,15 +86,14 @@ extension TestingElement where Accessibility: SelectableAccessibility {
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> Self {
-        if !element.wait(for: \.isContentSelected, toEqual: false, timeout: timeout), failing {
-            XCTFail(
-                "Element \(element) was not deselected within \(timeout) seconds",
-                file: file,
-                line: line
-            )
-        }
-
-        return self
+        wait(
+            for: isSelected == false,
+            timeout: timeout,
+            failing: failing,
+            message: "Element \(element) was not deselected within \(timeout) seconds",
+            file: file,
+            line: line
+        )
     }
 }
 

@@ -91,15 +91,14 @@ extension TestingElement where Accessibility: ViewAccessibility {
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> Self {
-        if !element.wait(for: \.frame, toEqual: frame, timeout: timeout), failing {
-            XCTFail(
-                "Frame of element \(element) was not equal to \(frame) within \(timeout) seconds",
-                file: file,
-                line: line
-            )
-        }
-
-        return self
+        wait(
+            for: self.frame == frame,
+            timeout: timeout,
+            failing: failing,
+            message: "Frame of element \(element) was not equal to \(frame) within \(timeout) seconds",
+            file: file,
+            line: line
+        )
     }
 
     /// Ждет указанное время, пока компонент не появится.
@@ -121,15 +120,14 @@ extension TestingElement where Accessibility: ViewAccessibility {
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> Self {
-        if !element.waitForExistence(timeout: timeout), failing {
-            XCTFail(
-                "Element \(element) was not appeared within \(timeout) seconds",
-                file: file,
-                line: line
-            )
-        }
-
-        return self
+        wait(
+            for: isExist,
+            timeout: timeout,
+            failing: failing,
+            message: "Element \(element) was not appeared within \(timeout) seconds",
+            file: file,
+            line: line
+        )
     }
 
     /// Ждет указанное время, пока компонент не исчезнет.
@@ -151,15 +149,14 @@ extension TestingElement where Accessibility: ViewAccessibility {
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> Self {
-        if !element.waitForNonExistence(timeout: timeout), failing {
-            XCTFail(
-                "Element \(element) was not disappeared within \(timeout) seconds",
-                file: file,
-                line: line
-            )
-        }
-
-        return self
+        wait(
+            for: !isExist,
+            timeout: timeout,
+            failing: failing,
+            message: "Element \(element) was not disappeared within \(timeout) seconds",
+            file: file,
+            line: line
+        )
     }
 
     /// Выводит в консоль отладочную информацию.
