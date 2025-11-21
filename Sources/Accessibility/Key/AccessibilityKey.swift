@@ -153,6 +153,15 @@ import SwiftUI
 /// - ``TestingElement``
 public struct AccessibilityKey: Hashable, Equatable, Sendable {
 
+    private static let primitives: [Any.Type] = [
+        ViewAccessibility.self,
+        ImageAccessibility.self,
+        TextAccessibility.self,
+        [ViewAccessibility].self,
+        [ImageAccessibility].self,
+        [TextAccessibility].self
+    ]
+
     private let content: AccessibilityKeyContent
 
     /// Итоговый accessibility-идентификатор.
@@ -165,6 +174,15 @@ public struct AccessibilityKey: Hashable, Equatable, Sendable {
             : nil
     }
 
+    /// Флаг для определения, является ли UI-компонент примитивным.
+    ///
+    /// Вернет `nil`, если accessibility-ключ создан с итоговым идентификатором.
+    public var isPrimitive: Bool? {
+        content.valueType.map { valueType in
+            Self.primitives.contains { $0 == valueType }
+        }
+    }
+
     private init(content: AccessibilityKeyContent) {
         self.content = content
     }
@@ -174,7 +192,13 @@ extension AccessibilityKey: ViewModifier {
 
     public func body(content: Content) -> some View {
         if let identifier {
-            content.accessibilityIdentifier(identifier)
+            if isPrimitive ?? false {
+                content.accessibilityIdentifier(identifier)
+            } else {
+                content
+                    .accessibilityIdentifier(identifier)
+                    .accessibilityElement(children: .contain)
+            }
         } else {
             content
         }

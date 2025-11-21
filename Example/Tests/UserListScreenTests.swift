@@ -118,7 +118,7 @@ final class UserListScreenTests: XCTestCase {
             .waitForHittable()
             .tap()
             .waitForFocused()
-            .perform { userList.swipeUp() }
+            .perform { userList.swipeDown() }
             .waitForUnfocused()
     }
 

@@ -4,7 +4,7 @@ final class TestAccessibilityWithNestedAccessibility: ViewAccessibility {
 
     final class FooBarAccessibility: ViewAccessibility {
         let foo = TextAccessibility()
-        let bar = ImageAccessibility()
+        let bar = TestAccessibility()
     }
 
     let fooBar = FooBarAccessibility()
