@@ -68,4 +68,30 @@ final class AccessibilityKeyTests: XCTestCase {
         XCTAssertEqual(foo, "TestAccessibilityWithNestedGroup.fooBar.foo")
         XCTAssertEqual(bar, "TestAccessibilityWithNestedGroup.fooBar.bar")
     }
+
+    func testThatIdentifierIsCorrectForComputedProperty() {
+        let foo = AccessibilityKey
+            .keyPath(\TestAccessibilityWithComputedProperty.foo)
+            .identifier
+
+        let bar = AccessibilityKey
+            .keyPath(\TestAccessibilityWithComputedProperty.bar)
+            .identifier
+
+        XCTAssertEqual(foo, "TestAccessibilityWithComputedProperty.foo")
+        XCTAssertEqual(bar, "TestAccessibilityWithComputedProperty.bar")
+    }
+
+    func testThatIdentifierIsCorrectForArray() {
+        let foo = AccessibilityKey
+            .keyPath(\TestAccessibilityWithArrays.foo)
+            .identifier
+
+        let bar = AccessibilityKey
+            .keyPath(\TestAccessibilityWithArrays.bar, item: "qwe")
+            .identifier
+
+        XCTAssertEqual(foo, "TestAccessibilityWithArrays.foo[]")
+        XCTAssertEqual(bar, "TestAccessibilityWithArrays.bar[qwe]")
+    }
 }
