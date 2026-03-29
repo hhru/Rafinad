@@ -2,9 +2,22 @@ import XCTest
 import Rafinad
 
 @MainActor
-final class AccessibilityKeyTests: XCTestCase {
+final class AccessibilityKeyIdentifierTests: XCTestCase {
 
-    func testThatIdentifierIsCorrect() {
+    func testThatIdentifierIsCorrectForRawIdentifier() {
+        let foo = AccessibilityKey
+            .identifier("foo")
+            .identifier
+
+        let bar = AccessibilityKey
+            .identifier("bar")
+            .identifier
+
+        XCTAssertEqual(foo, "foo")
+        XCTAssertEqual(bar, "bar")
+    }
+
+    func testThatIdentifierIsCorrectForKeyPath() {
         let foo = AccessibilityKey
             .keyPath(\TestAccessibility.foo)
             .identifier
@@ -67,5 +80,31 @@ final class AccessibilityKeyTests: XCTestCase {
 
         XCTAssertEqual(foo, "TestAccessibilityWithNestedGroup.fooBar.foo")
         XCTAssertEqual(bar, "TestAccessibilityWithNestedGroup.fooBar.bar")
+    }
+
+    func testThatIdentifierIsCorrectForComputedProperty() {
+        let foo = AccessibilityKey
+            .keyPath(\TestAccessibilityWithComputedProperty.foo)
+            .identifier
+
+        let bar = AccessibilityKey
+            .keyPath(\TestAccessibilityWithComputedProperty.bar)
+            .identifier
+
+        XCTAssertEqual(foo, "TestAccessibilityWithComputedProperty.foo")
+        XCTAssertEqual(bar, "TestAccessibilityWithComputedProperty.bar")
+    }
+
+    func testThatIdentifierIsCorrectForArray() {
+        let foo = AccessibilityKey
+            .keyPath(\TestAccessibilityWithArrays.foo)
+            .identifier
+
+        let bar = AccessibilityKey
+            .keyPath(\TestAccessibilityWithArrays.bar, item: "qwe")
+            .identifier
+
+        XCTAssertEqual(foo, "TestAccessibilityWithArrays.foo[]")
+        XCTAssertEqual(bar, "TestAccessibilityWithArrays.bar[qwe]")
     }
 }

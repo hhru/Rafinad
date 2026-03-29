@@ -11,6 +11,10 @@ internal struct AccessibilityKeyContent: Hashable, @unchecked Sendable {
             ?? ""
     }
 
+    internal var valueType: Any.Type? {
+        keyPath.map { type(of: $0).valueType }
+    }
+
     private init(keyPath: AnyKeyPath?, rawValue: String?) {
         self.keyPath = keyPath
         self.rawValue = rawValue
@@ -36,6 +40,6 @@ extension AccessibilityKeyContent {
         _ keyPath: KeyPath<Root, Value>,
         item: String? = nil
     ) -> Self where Value.Element: ViewAccessibility {
-        Self(keyPath: keyPath, rawValue: item)
+        Self(keyPath: keyPath, rawValue: item ?? "")
     }
 }
