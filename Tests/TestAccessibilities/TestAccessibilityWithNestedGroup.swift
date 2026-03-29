@@ -4,7 +4,7 @@ final class TestAccessibilityWithNestedGroup: ViewAccessibility {
 
     final class FooBarGroup {
         let foo = TextAccessibility()
-        let bar = ImageAccessibility()
+        let bar = TestAccessibility()
     }
 
     let fooBar = FooBarGroup()

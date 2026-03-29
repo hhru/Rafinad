@@ -2,9 +2,22 @@ import XCTest
 import Rafinad
 
 @MainActor
-final class AccessibilityKeyTests: XCTestCase {
+final class AccessibilityKeyIdentifierTests: XCTestCase {
 
-    func testThatIdentifierIsCorrect() {
+    func testThatIdentifierIsCorrectForRawIdentifier() {
+        let foo = AccessibilityKey
+            .identifier("foo")
+            .identifier
+
+        let bar = AccessibilityKey
+            .identifier("bar")
+            .identifier
+
+        XCTAssertEqual(foo, "foo")
+        XCTAssertEqual(bar, "bar")
+    }
+
+    func testThatIdentifierIsCorrectForKeyPath() {
         let foo = AccessibilityKey
             .keyPath(\TestAccessibility.foo)
             .identifier
