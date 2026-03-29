@@ -9,7 +9,7 @@ extension TestingElement where Accessibility: SwipeableAccessibility {
 
     /// Выполняет жест свайпа влево с указанной скоростью.
     ///
-    /// - Parameter velocity: Скорость свайпа в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    /// - Parameter velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
     /// - Returns: Экземпляр тестируемого компонента.
     @discardableResult
     public func swipeLeft(velocity: XCUIGestureVelocity = .default) -> Self {
@@ -22,7 +22,7 @@ extension TestingElement where Accessibility: SwipeableAccessibility {
     /// пока не будет выполнено условие или количество попыток не превысит лимит.
     ///
     /// - Parameters:
-    ///   - velocity: Скорость свайпа в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    ///   - velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
     ///   - limit: Максимальное количество попыток.
     ///   - condition: Замыкание, определяющее условие завершения.
     /// - Returns: Экземпляр тестируемого компонента.
@@ -43,7 +43,7 @@ extension TestingElement where Accessibility: SwipeableAccessibility {
     /// пока не будет выполнено условие или количество попыток не превысит лимит.
     ///
     /// - Parameters:
-    ///   - velocity: Скорость свайпа в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    ///   - velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
     ///   - limit: Максимальное количество попыток.
     ///   - condition: Автозамыкание, определяющее условие завершения.
     /// - Returns: Экземпляр тестируемого компонента.
@@ -62,7 +62,7 @@ extension TestingElement where Accessibility: SwipeableAccessibility {
 
     /// Выполняет жест свайпа вправо с указанной скоростью.
     ///
-    /// - Parameter velocity: Скорость свайпа в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    /// - Parameter velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
     /// - Returns: Экземпляр тестируемого компонента.
     @discardableResult
     public func swipeRight(velocity: XCUIGestureVelocity = .default) -> Self {
@@ -75,7 +75,7 @@ extension TestingElement where Accessibility: SwipeableAccessibility {
     /// пока не будет выполнено условие или количество попыток не превысит лимит.
     ///
     /// - Parameters:
-    ///   - velocity: Скорость свайпа в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    ///   - velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
     ///   - limit: Максимальное количество попыток.
     ///   - condition: Замыкание, определяющее условие завершения.
     /// - Returns: Экземпляр тестируемого компонента.
@@ -96,7 +96,7 @@ extension TestingElement where Accessibility: SwipeableAccessibility {
     /// пока не будет выполнено условие или количество попыток не превысит лимит.
     ///
     /// - Parameters:
-    ///   - velocity: Скорость свайпа в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    ///   - velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
     ///   - limit: Максимальное количество попыток.
     ///   - condition: Автозамыкание, определяющее условие завершения.
     /// - Returns: Экземпляр тестируемого компонента.
@@ -115,7 +115,7 @@ extension TestingElement where Accessibility: SwipeableAccessibility {
 
     /// Выполняет жест свайпа вверх с указанной скоростью.
     ///
-    /// - Parameter velocity: Скорость свайпа в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    /// - Parameter velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
     /// - Returns: Экземпляр тестируемого компонента.
     @discardableResult
     public func swipeUp(velocity: XCUIGestureVelocity = .default) -> Self {
@@ -128,7 +128,7 @@ extension TestingElement where Accessibility: SwipeableAccessibility {
     /// пока не будет выполнено условие или количество попыток не превысит лимит.
     ///
     /// - Parameters:
-    ///   - velocity: Скорость свайпа в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    ///   - velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
     ///   - limit: Максимальное количество попыток.
     ///   - condition: Замыкание, определяющее условие завершения.
     /// - Returns: Экземпляр тестируемого компонента.
@@ -149,7 +149,7 @@ extension TestingElement where Accessibility: SwipeableAccessibility {
     /// пока не будет выполнено условие или количество попыток не превысит лимит.
     ///
     /// - Parameters:
-    ///   - velocity: Скорость свайпа в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    ///   - velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
     ///   - limit: Максимальное количество попыток.
     ///   - condition: Автозамыкание, определяющее условие завершения.
     /// - Returns: Экземпляр тестируемого компонента.
@@ -168,7 +168,7 @@ extension TestingElement where Accessibility: SwipeableAccessibility {
 
     /// Выполняет жест свайпа вниз с указанной скоростью.
     ///
-    /// - Parameter velocity: Скорость свайпа в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    /// - Parameter velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
     /// - Returns: Экземпляр тестируемого компонента.
     @discardableResult
     public func swipeDown(velocity: XCUIGestureVelocity = .default) -> Self {
@@ -181,7 +181,7 @@ extension TestingElement where Accessibility: SwipeableAccessibility {
     /// пока не будет выполнено условие или количество попыток не превысит лимит.
     ///
     /// - Parameters:
-    ///   - velocity: Скорость свайпа в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    ///   - velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
     ///   - limit: Максимальное количество попыток.
     ///   - condition: Замыкание, определяющее условие завершения.
     /// - Returns: Экземпляр тестируемого компонента.
@@ -202,7 +202,7 @@ extension TestingElement where Accessibility: SwipeableAccessibility {
     /// пока не будет выполнено условие или количество попыток не превысит лимит.
     ///
     /// - Parameters:
-    ///   - velocity: Скорость свайпа в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    ///   - velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
     ///   - limit: Максимальное количество попыток.
     ///   - condition: Автозамыкание, определяющее условие завершения.
     /// - Returns: Экземпляр тестируемого компонента.
@@ -226,7 +226,10 @@ extension TestingElement where Accessibility: SwipeableAccessibility {
     ///   - finishOffset: Конечная относительная позиция.
     /// - Returns: Экземпляр тестируемого компонента.
     @discardableResult
-    public func drag(from startOffset: CGVector, to finishOffset: CGVector) -> Self {
+    public func drag(
+        from startOffset: CGVector,
+        to finishOffset: CGVector
+    ) -> Self {
         let start = element.coordinate(withNormalizedOffset: startOffset)
         let finish = element.coordinate(withNormalizedOffset: finishOffset)
 
@@ -346,6 +349,203 @@ extension TestingElement where Accessibility: SwipeableAccessibility {
     ) -> Self {
         perform(
             action: { drag(deltaX: deltaX, deltaY: deltaY) },
+            limit: limit,
+            until: condition
+        )
+    }
+
+    /// Выполняет жест перетягивания.
+    ///
+    /// - Parameters:
+    ///   - startOffset: Начальная относительная позиция.
+    ///   - finishOffset: Конечная относительная позиция.
+    ///   - velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    ///   - holdDuration: Продолжительность задержки в конечной точке.
+    /// - Returns: Экземпляр тестируемого компонента.
+    @discardableResult
+    public func drag(
+        from startOffset: CGVector,
+        to finishOffset: CGVector,
+        velocity: XCUIGestureVelocity = .default,
+        holdDuration: TimeInterval
+    ) -> Self {
+        let start = element.coordinate(withNormalizedOffset: startOffset)
+        let finish = element.coordinate(withNormalizedOffset: finishOffset)
+
+        start.press(
+            forDuration: 0.05,
+            thenDragTo: finish,
+            withVelocity: velocity,
+            thenHoldForDuration: holdDuration
+        )
+
+        return self
+    }
+
+    /// Выполняет жест перетягивания до тех пор,
+    /// пока не будет выполнено условие или количество попыток не превысит лимит.
+    ///
+    /// - Parameters:
+    ///   - startOffset: Начальная относительная позиция.
+    ///   - finishOffset: Конечная относительная позиция.
+    ///   - velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    ///   - holdDuration: Продолжительность задержки в конечной точке.
+    ///   - limit: Максимальное количество попыток.
+    ///   - condition: Замыкание, определяющее условие завершения.
+    /// - Returns: Экземпляр тестируемого компонента.
+    @discardableResult
+    public func drag(
+        from startOffset: CGVector,
+        to finishOffset: CGVector,
+        velocity: XCUIGestureVelocity = .default,
+        holdDuration: TimeInterval,
+        limit: Int = 16,
+        until condition: (Self) -> Bool
+    ) -> Self {
+        perform(
+            action: {
+                drag(
+                    from: startOffset,
+                    to: finishOffset,
+                    velocity: velocity,
+                    holdDuration: holdDuration
+                )
+            },
+            limit: limit,
+            until: condition
+        )
+    }
+
+    /// Выполняет жест перетягивания до тех пор,
+    /// пока не будет выполнено условие или количество попыток не превысит лимит.
+    ///
+    /// - Parameters:
+    ///   - startOffset: Начальная относительная позиция.
+    ///   - finishOffset: Конечная относительная позиция.
+    ///   - velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    ///   - holdDuration: Продолжительность задержки в конечной точке.
+    ///   - limit: Максимальное количество попыток.
+    ///   - condition: Автозамыкание, определяющее условие завершения.
+    /// - Returns: Экземпляр тестируемого компонента.
+    @discardableResult
+    public func drag(
+        from startOffset: CGVector,
+        to finishOffset: CGVector,
+        velocity: XCUIGestureVelocity = .default,
+        holdDuration: TimeInterval,
+        limit: Int = 16,
+        until condition: @autoclosure () -> Bool
+    ) -> Self {
+        perform(
+            action: {
+                drag(
+                    from: startOffset,
+                    to: finishOffset,
+                    velocity: velocity,
+                    holdDuration: holdDuration
+                )
+            },
+            limit: limit,
+            until: condition
+        )
+    }
+
+    /// Выполняет жест перетягивания с указанной относительной длиной.
+    ///
+    /// - Parameters:
+    ///   - deltaX: Относительная длина по горизонтали.
+    ///   - deltaY: Относительная длина по вертикали.
+    ///   - velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    ///   - holdDuration: Продолжительность задержки в конечной точке.
+    /// - Returns: Экземпляр тестируемого компонента.
+    @discardableResult
+    public func drag(
+        deltaX: CGFloat,
+        deltaY: CGFloat,
+        velocity: XCUIGestureVelocity = .default,
+        holdDuration: TimeInterval
+    ) -> Self {
+        let startOffset = CGVector(
+            dx: max(min(0.5 - deltaX * 0.5, 1.0), 0.0),
+            dy: max(min(0.5 - deltaY * 0.5, 1.0), 0.0)
+        )
+
+        let finishOffset = CGVector(
+            dx: max(min(0.5 + deltaX * 0.5, 1.0), 0.0),
+            dy: max(min(0.5 + deltaY * 0.5, 1.0), 0.0)
+        )
+
+        return drag(
+            from: startOffset,
+            to: finishOffset,
+            velocity: velocity,
+            holdDuration: holdDuration
+        )
+    }
+
+    /// Выполняет жест перетягивания с указанной относительной длиной до тех пор,
+    /// пока не будет выполнено условие или количество попыток не превысит лимит.
+    ///
+    /// - Parameters:
+    ///   - deltaX: Относительная длина по горизонтали.
+    ///   - deltaY: Относительная длина по вертикали.
+    ///   - velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    ///   - holdDuration: Продолжительность задержки в конечной точке.
+    ///   - limit: Максимальное количество попыток.
+    ///   - condition: Замыкание, определяющее условие завершения.
+    /// - Returns: Экземпляр тестируемого компонента.
+    @discardableResult
+    public func drag(
+        deltaX: CGFloat,
+        deltaY: CGFloat,
+        velocity: XCUIGestureVelocity = .default,
+        holdDuration: TimeInterval,
+        limit: Int = 16,
+        until condition: (Self) -> Bool
+    ) -> Self {
+        perform(
+            action: {
+                drag(
+                    deltaX: deltaX,
+                    deltaY: deltaY,
+                    velocity: velocity,
+                    holdDuration: holdDuration
+                )
+            },
+            limit: limit,
+            until: condition
+        )
+    }
+
+    /// Выполняет жест перетягивания с указанной относительной длиной до тех пор,
+    /// пока не будет выполнено условие или количество попыток не превысит лимит.
+    ///
+    /// - Parameters:
+    ///   - deltaX: Относительная длина по горизонтали.
+    ///   - deltaY: Относительная длина по вертикали.
+    ///   - velocity: Скорость жеста в пикселях в секуду. Имеет стандартное значение по умолчанию.
+    ///   - holdDuration: Продолжительность задержки в конечной точке.
+    ///   - limit: Максимальное количество попыток.
+    ///   - condition: Автозамыкание, определяющее условие завершения.
+    /// - Returns: Экземпляр тестируемого компонента.
+    @discardableResult
+    public func drag(
+        deltaX: CGFloat,
+        deltaY: CGFloat,
+        velocity: XCUIGestureVelocity = .default,
+        holdDuration: TimeInterval,
+        limit: Int = 16,
+        until condition: @autoclosure () -> Bool
+    ) -> Self {
+        perform(
+            action: {
+                drag(
+                    deltaX: deltaX,
+                    deltaY: deltaY,
+                    velocity: velocity,
+                    holdDuration: holdDuration
+                )
+            },
             limit: limit,
             until: condition
         )
