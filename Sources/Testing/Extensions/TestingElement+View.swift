@@ -54,11 +54,12 @@ extension TestingElement where Accessibility: ViewAccessibility {
     ///   - line: Номер строки, на которой должен произойти сбой.
     ///           По умолчанию используется номер строки, на которой был вызван этот метод.
     /// - Returns: Экземпляр тестируемого компонента.
+    @discardableResult
     public func assertFrame<Element: ViewAccessibility>(
         inside other: TestingElement<Element>,
         file: StaticString = #filePath,
         line: UInt = #line
-    ) {
+    ) -> Self {
         XCTAssertTrue(
             frame.flatMap { frame in
                 other.frame?.contains(frame)
@@ -66,6 +67,8 @@ extension TestingElement where Accessibility: ViewAccessibility {
             file: file,
             line: line
         )
+
+        return self
     }
 
     /// Проверяет, что фрейм компонента содержит фрейм другого компонента.
@@ -77,11 +80,12 @@ extension TestingElement where Accessibility: ViewAccessibility {
     ///   - line: Номер строки, на которой должен произойти сбой.
     ///           По умолчанию используется номер строки, на которой был вызван этот метод.
     /// - Returns: Экземпляр тестируемого компонента.
+    @discardableResult
     public func assertFrame<Element: ViewAccessibility>(
         contains other: TestingElement<Element>,
         file: StaticString = #filePath,
         line: UInt = #line
-    ) {
+    ) -> Self {
         XCTAssertTrue(
             other.frame.flatMap { otherFrame in
                 frame?.contains(otherFrame)
@@ -89,6 +93,8 @@ extension TestingElement where Accessibility: ViewAccessibility {
             file: file,
             line: line
         )
+
+        return self
     }
 
     /// Проверяет, что фрейм компонента пересекается с фреймом другого компонента.
@@ -100,11 +106,12 @@ extension TestingElement where Accessibility: ViewAccessibility {
     ///   - line: Номер строки, на которой должен произойти сбой.
     ///           По умолчанию используется номер строки, на которой был вызван этот метод.
     /// - Returns: Экземпляр тестируемого компонента.
+    @discardableResult
     public func assertFrame<Element: ViewAccessibility>(
         intersects other: TestingElement<Element>,
         file: StaticString = #filePath,
         line: UInt = #line
-    ) {
+    ) -> Self {
         XCTAssertTrue(
             other.frame.flatMap { otherFrame in
                 frame?.intersects(otherFrame)
@@ -112,6 +119,8 @@ extension TestingElement where Accessibility: ViewAccessibility {
             file: file,
             line: line
         )
+
+        return self
     }
 
     /// Проверяет, что наличие компонента равно указанному.
@@ -183,13 +192,14 @@ extension TestingElement where Accessibility: ViewAccessibility {
     ///   - line: Номер строки, на которой должен произойти сбой.
     ///           По умолчанию используется номер строки, на которой был вызван этот метод.
     /// - Returns: Экземпляр тестируемого компонента.
+    @discardableResult
     public func waitForFrame<Element: ViewAccessibility>(
         inside other: TestingElement<Element>,
         timeout: TimeInterval = 4,
         failing: Bool = true,
         file: StaticString = #filePath,
         line: UInt = #line
-    ) {
+    ) -> Self {
         wait(
             for: frame.flatMap { frame in
                 other.frame?.contains(frame)
@@ -215,13 +225,14 @@ extension TestingElement where Accessibility: ViewAccessibility {
     ///   - line: Номер строки, на которой должен произойти сбой.
     ///           По умолчанию используется номер строки, на которой был вызван этот метод.
     /// - Returns: Экземпляр тестируемого компонента.
+    @discardableResult
     public func waitForFrame<Element: ViewAccessibility>(
         contains other: TestingElement<Element>,
         timeout: TimeInterval = 4,
         failing: Bool = true,
         file: StaticString = #filePath,
         line: UInt = #line
-    ) {
+    ) -> Self {
         wait(
             for: other.frame.flatMap { otherFrame in
                 frame?.contains(otherFrame)
@@ -247,13 +258,14 @@ extension TestingElement where Accessibility: ViewAccessibility {
     ///   - line: Номер строки, на которой должен произойти сбой.
     ///           По умолчанию используется номер строки, на которой был вызван этот метод.
     /// - Returns: Экземпляр тестируемого компонента.
+    @discardableResult
     public func waitForFrame<Element: ViewAccessibility>(
         intersects other: TestingElement<Element>,
         timeout: TimeInterval = 4,
         failing: Bool = true,
         file: StaticString = #filePath,
         line: UInt = #line
-    ) {
+    ) -> Self {
         wait(
             for: other.frame.flatMap { otherFrame in
                 frame?.intersects(otherFrame)
