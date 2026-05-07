@@ -40,7 +40,7 @@ To integrate Rafinad into your Xcode project using Swift Package Manager,
 add it to the `dependencies` value of your `Package.swift` or the Package list in Xcode:
 
 ``` swift
-.package(url: "https://github.com/hhru/Rafinad.git", from: "1.0.0")
+.package(url: "https://github.com/hhru/Rafinad.git", from: "1.1.0")
 ```
 
 Then specify the dependencies for the corresponding targets of your project:
@@ -57,7 +57,7 @@ $ brew install carthage
 
 To integrate Rafinad into your Xcode project using Carthage, specify it in your `Cartfile`:
 ``` ogdl
-github "hhru/Rafinad" ~> 1.0.0
+github "hhru/Rafinad" ~> 1.1.0
 ```
 
 Then run `carthage update  --use-xcframeworks` to build the frameworks.
@@ -81,11 +81,11 @@ platform :ios, '15.0'
 use_frameworks!
 
 target '<Your App Target Name>' do
-    pod 'Rafinad/Accessibility', '~> 1.0.0'
+    pod 'Rafinad/Accessibility', '~> 1.1.0'
 end
 
 target '<Your UI Testing Target Name>' do
-    pod 'Rafinad', '~> 1.0.0'
+    pod 'Rafinad', '~> 1.1.0'
 end
 ```
 

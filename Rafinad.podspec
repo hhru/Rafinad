@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "Rafinad"
-  spec.version = "1.0.0"
+  spec.version = "1.1.0"
   spec.summary = "A Swift DSL for UI testing of iOS, macOS and tvOS apps, featuring a simplified, chainable and compile-time safe syntax"
 
   spec.homepage = "https://github.com/hhru/Rafinad"
