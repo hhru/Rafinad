@@ -11,7 +11,7 @@ readonly hosting_base_path="Rafinad"
 
 readonly project="Rafinad.xcodeproj"
 readonly scheme="Rafinad Documentation"
-readonly destination="platform=iOS Simulator,name=iPhone 16"
+readonly destination="platform=iOS Simulator,name=iPhone 17 Pro"
 
 source "${helpers_path}/script-paths.sh"
 
