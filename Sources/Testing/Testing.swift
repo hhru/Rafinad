@@ -52,6 +52,117 @@ extension Testing {
         return self
     }
 
+    /// Выполняет действие, пока не будет выполнено условие или не истечет время ожидания.
+    ///
+    /// Условие может проверяться многократно и не должно содержать проверок XCTest или побочных эффектов.
+    /// Действие может выполняться многократно, поэтому должно поддерживать безопасный повторный вызов
+    /// и не должно содержать проверок XCTest или ожиданий, завершающих тест с ошибкой.
+    ///
+    /// - Parameters:
+    ///   - condition: Условие завершения повторных попыток.
+    ///   - timeout: Максимальное время выполнения повторных попыток в секундах.
+    ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного выполнения.
+    ///   - file: Файл, в котором должен произойти сбой.
+    ///   - line: Номер строки, на которой должен произойти сбой.
+    ///   - action: Повторяемое действие.
+    /// - Returns: Экземпляр тестируемого элемента.
+    @discardableResult
+    public func perform(
+        until condition: (Self) -> Bool,
+        timeout: TimeInterval = 4,
+        failing: Bool = true,
+        file: StaticString = #filePath,
+        line: UInt = #line,
+        action: (Self) -> Void
+    ) -> Self {
+        if condition(self) {
+            return self
+        }
+
+        var retryInterval = 0.2
+        let timeoutDate = Date(timeIntervalSinceNow: timeout)
+
+        while Date() < timeoutDate {
+            action(self)
+
+            guard Date() < timeoutDate else {
+                break
+            }
+
+            let isConditionSatisfiedAfterAction = condition(self)
+
+            guard Date() < timeoutDate else {
+                break
+            }
+
+            if isConditionSatisfiedAfterAction {
+                return self
+            }
+
+            let waitDuration = min(retryInterval, timeoutDate.timeIntervalSinceNow)
+            RunLoop.current.run(until: Date(timeIntervalSinceNow: waitDuration))
+
+            guard Date() < timeoutDate else {
+                break
+            }
+
+            let isConditionSatisfiedAfterWaiting = condition(self)
+
+            guard Date() < timeoutDate else {
+                break
+            }
+
+            if isConditionSatisfiedAfterWaiting {
+                return self
+            }
+
+            retryInterval = min(retryInterval * 1.5, 2.0)
+        }
+
+        if failing {
+            XCTFail(
+                "Condition was not satisfied within \(timeout) seconds",
+                file: file,
+                line: line
+            )
+        }
+
+        return self
+    }
+
+    /// Выполняет действие, пока не будет выполнено условие или не истечет время ожидания.
+    ///
+    /// Условие может проверяться многократно и не должно содержать проверок XCTest или побочных эффектов.
+    /// Действие может выполняться многократно, поэтому должно поддерживать безопасный повторный вызов
+    /// и не должно содержать проверок XCTest или ожиданий, завершающих тест с ошибкой.
+    ///
+    /// - Parameters:
+    ///   - condition: Условие завершения повторных попыток.
+    ///   - timeout: Максимальное время выполнения повторных попыток в секундах.
+    ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного выполнения.
+    ///   - file: Файл, в котором должен произойти сбой.
+    ///   - line: Номер строки, на которой должен произойти сбой.
+    ///   - action: Повторяемое действие.
+    /// - Returns: Экземпляр тестируемого элемента.
+    @discardableResult
+    public func perform(
+        until condition: () -> Bool,
+        timeout: TimeInterval = 4,
+        failing: Bool = true,
+        file: StaticString = #filePath,
+        line: UInt = #line,
+        action: () -> Void
+    ) -> Self {
+        perform(
+            until: { _ in condition() },
+            timeout: timeout,
+            failing: failing,
+            file: file,
+            line: line,
+            action: { _ in action() }
+        )
+    }
+
     /// Проверяет условие.
     ///
     /// - Parameters:
