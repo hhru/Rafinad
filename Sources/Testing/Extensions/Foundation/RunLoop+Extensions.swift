@@ -8,7 +8,7 @@ extension RunLoop {
         // RunLoop может завершиться немедленно, если у него нет источников событий,
         // поэтому запускаем его повторно, пока не истечет указанное время.
         while Date() < timeoutDate {
-            RunLoop.current.run(until: timeoutDate)
+            run(until: timeoutDate)
         }
     }
 }

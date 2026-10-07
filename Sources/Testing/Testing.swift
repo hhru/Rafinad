@@ -7,10 +7,8 @@ import XCTest
 /// - ``TestingElement``
 /// - ``TestingList``
 /// - ``TestingOptions``
-@MainActor
 public protocol Testing { }
 
-@MainActor
 extension Testing {
 
     /// Выполняет указанное действие в виде замыкания.
@@ -121,7 +119,7 @@ extension Testing {
     ///
     /// - Parameters:
     ///   - condition: Автозамыкание, определяющее условие.
-    ///   - timeout: Время ожидания текста компонента в секундах.
+    ///   - timeout: Время ожидания в секундах.
     ///              По умолчанию используется ``TestingOptions/waitDefaultTimeout``.
     ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного ожидания.
     ///              По умолчанию флаг включен.
@@ -184,7 +182,7 @@ extension Testing {
     ///
     /// - Parameters:
     ///   - condition: Замыкание, определяющее условие.
-    ///   - timeout: Время ожидания текста компонента в секундах.
+    ///   - timeout: Время ожидания в секундах.
     ///              По умолчанию используется ``TestingOptions/waitDefaultTimeout``.
     ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного ожидания.
     ///              По умолчанию флаг включен.

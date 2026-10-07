@@ -79,12 +79,34 @@ public struct TestingOptions: Sendable, Equatable {
         validate()
     }
 
-    private func validate() {
-        precondition(waitDefaultTimeout >= .zero, "waitDefaultTimeout must be non-negative")
-        precondition(waitSettleDelay >= .zero, "waitSettleDelay must be non-negative")
-        precondition(waitPollInterval > .zero, "waitPollInterval must be positive")
-        precondition(waitPollIntervalMultiplier >= 1.0, "waitPollIntervalMultiplier must be at least 1")
-        precondition(waitPollIntervalLimit > .zero, "waitPollIntervalLimit must be positive")
+    @discardableResult
+    private func validate() -> Self {
+        precondition(
+            waitDefaultTimeout >= .zero,
+            "TestingOptions.waitDefaultTimeout must be non-negative"
+        )
+
+        precondition(
+            waitSettleDelay >= .zero,
+            "TestingOptions.waitSettleDelay must be non-negative"
+        )
+
+        precondition(
+            waitPollInterval > .zero,
+            "TestingOptions.waitPollInterval must be positive"
+        )
+
+        precondition(
+            waitPollIntervalMultiplier >= 1.0,
+            "TestingOptions.waitPollIntervalMultiplier must be at least 1"
+        )
+
+        precondition(
+            waitPollIntervalLimit > .zero,
+            "TestingOptions.waitPollIntervalLimit must be positive"
+        )
+
+        return self
     }
 }
 
@@ -99,8 +121,8 @@ extension TestingOptions {
     /// поэтому настройки рекомендуется задавать один раз до запуска тестов.
     ///
     /// По умолчанию равны ``default``.
-    @MainActor
-    public static var current = Self.default {
-        willSet { newValue.validate() }
+    public static var current: Self {
+        get { TestingOptionsStorage.current.options }
+        set { TestingOptionsStorage.current.options = newValue.validate() }
     }
 }
