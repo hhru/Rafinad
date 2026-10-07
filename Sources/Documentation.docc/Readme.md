@@ -97,6 +97,25 @@ final class UserScreenTests: XCTestCase {
 ```
 
 
+### Настройка ожиданий
+
+Параметры всех методов ожидания задаются глобально через ``TestingOptions/current``:
+- ``TestingOptions/waitDefaultTimeout``: время ожидания по умолчанию
+- ``TestingOptions/waitSettleDelay``: пауза после успешного ожидания
+- ``TestingOptions/waitPollInterval``: начальный интервал проверки условия ожидания
+- ``TestingOptions/waitPollIntervalMultiplier``: множитель интервала проверки условия ожидания
+- ``TestingOptions/waitPollIntervalLimit``: максимальный интервал проверки условия ожидания
+
+Настройки рекомендуется задавать один раз до запуска тестов:
+
+``` swift
+TestingOptions.current = TestingOptions(
+    waitDefaultTimeout: 10,
+    waitSettleDelay: 0.3
+)
+```
+
+
 ### Импорты
 
 Чтобы кодовая база приложений не имела лишних тестовых зависимостей, Rafinad разделен на 2 таргета:
@@ -128,4 +147,5 @@ final class UserScreenTests: XCTestCase {
 
 - ``TestingElement``
 - ``TestingList``
+- ``TestingOptions``
 - ``Testing``

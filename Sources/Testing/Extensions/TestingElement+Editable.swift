@@ -107,7 +107,7 @@ extension TestingElement where Accessibility: EditableAccessibility {
     /// - Parameters:
     ///   - text: Введенный текст.
     ///   - timeout: Время ожидания введенного текста компонента в секундах.
-    ///              По умолчанию равен 4 секундам.
+    ///              По умолчанию используется ``TestingOptions/waitDefaultTimeout``.
     ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного ожидания.
     ///              По умолчанию флаг включен.
     ///   - file: Файл, в котором должен произойти сбой.
@@ -118,7 +118,7 @@ extension TestingElement where Accessibility: EditableAccessibility {
     @discardableResult
     public func waitForText(
         _ text: String,
-        timeout: TimeInterval = 4,
+        timeout: TimeInterval = TestingOptions.current.waitDefaultTimeout,
         failing: Bool = true,
         file: StaticString = #filePath,
         line: UInt = #line
@@ -138,7 +138,7 @@ extension TestingElement where Accessibility: EditableAccessibility {
     /// - Parameters:
     ///   - placeholder: Текст-заполнитель.
     ///   - timeout: Время ожидания введенного текста компонента в секундах.
-    ///              По умолчанию равен 4 секундам.
+    ///              По умолчанию используется ``TestingOptions/waitDefaultTimeout``.
     ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного ожидания.
     ///              По умолчанию флаг включен.
     ///   - file: Файл, в котором должен произойти сбой.
@@ -149,7 +149,7 @@ extension TestingElement where Accessibility: EditableAccessibility {
     @discardableResult
     public func waitForPlaceholder(
         _ placeholder: String,
-        timeout: TimeInterval = 4,
+        timeout: TimeInterval = TestingOptions.current.waitDefaultTimeout,
         failing: Bool = true,
         file: StaticString = #filePath,
         line: UInt = #line
@@ -168,7 +168,7 @@ extension TestingElement where Accessibility: EditableAccessibility {
     ///
     /// - Parameters:
     ///   - timeout: Время ожидания фокуса компонента в секундах.
-    ///              По умолчанию равен 4 секундам.
+    ///              По умолчанию используется ``TestingOptions/waitDefaultTimeout``.
     ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного ожидания.
     ///              По умолчанию флаг включен.
     ///   - file: Файл, в котором должен произойти сбой.
@@ -178,7 +178,7 @@ extension TestingElement where Accessibility: EditableAccessibility {
     /// - Returns: Экземпляр тестируемого компонента.
     @discardableResult
     public func waitForFocused(
-        timeout: TimeInterval = 4,
+        timeout: TimeInterval = TestingOptions.current.waitDefaultTimeout,
         failing: Bool = true,
         file: StaticString = #filePath,
         line: UInt = #line
@@ -197,7 +197,7 @@ extension TestingElement where Accessibility: EditableAccessibility {
     ///
     /// - Parameters:
     ///   - timeout: Время ожидания потери фокуса с компонента в секундах.
-    ///              По умолчанию равен 4 секундам.
+    ///              По умолчанию используется ``TestingOptions/waitDefaultTimeout``.
     ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного ожидания.
     ///              По умолчанию флаг включен.
     ///   - file: Файл, в котором должен произойти сбой.
@@ -207,7 +207,7 @@ extension TestingElement where Accessibility: EditableAccessibility {
     /// - Returns: Экземпляр тестируемого компонента.
     @discardableResult
     public func waitForUnfocused(
-        timeout: TimeInterval = 4,
+        timeout: TimeInterval = TestingOptions.current.waitDefaultTimeout,
         failing: Bool = true,
         file: StaticString = #filePath,
         line: UInt = #line

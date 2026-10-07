@@ -1,8 +1,16 @@
 import XCTest
 
 /// Вспомогательный протокол общих методов ``TestingElement`` и ``TestingList``.
+///
+/// ## See Also
+///
+/// - ``TestingElement``
+/// - ``TestingList``
+/// - ``TestingOptions``
+@MainActor
 public protocol Testing { }
 
+@MainActor
 extension Testing {
 
     /// Выполняет указанное действие в виде замыкания.
@@ -108,10 +116,13 @@ extension Testing {
 
     /// Ждет указанное время, пока не выполнится условие.
     ///
+    /// Интервал проверки условия и пауза после успешного ожидания
+    /// задаются глобальными настройками ``TestingOptions/current``.
+    ///
     /// - Parameters:
     ///   - condition: Автозамыкание, определяющее условие.
     ///   - timeout: Время ожидания текста компонента в секундах.
-    ///              По умолчанию равен 4 секундам.
+    ///              По умолчанию используется ``TestingOptions/waitDefaultTimeout``.
     ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного ожидания.
     ///              По умолчанию флаг включен.
     ///   - message: Описание ошибки в случае сбоя.
@@ -123,29 +134,36 @@ extension Testing {
     @discardableResult
     public func wait(
         for condition: @autoclosure () -> Bool,
-        timeout: TimeInterval = 4,
+        timeout: TimeInterval = TestingOptions.current.waitDefaultTimeout,
         failing: Bool = true,
         message: String = "",
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> Self {
+        let options = TestingOptions.current
+
         if condition() {
+            RunLoop.current.run(for: options.waitSettleDelay)
+
             return self
         }
 
-        var pollInterval = 0.2
+        var pollInterval = min(options.waitPollInterval, options.waitPollIntervalLimit)
         let timeoutDate = Date(timeIntervalSinceNow: timeout)
 
         while Date() < timeoutDate {
-            let waitDuration = min(pollInterval, timeoutDate.timeIntervalSinceNow)
-
-            RunLoop.current.run(until: Date(timeIntervalSinceNow: waitDuration))
+            RunLoop.current.run(for: min(pollInterval, timeoutDate.timeIntervalSinceNow))
 
             if condition() {
+                RunLoop.current.run(for: options.waitSettleDelay)
+
                 return self
             }
 
-            pollInterval = min(pollInterval * 1.5, 2.0)
+            pollInterval = min(
+                pollInterval * options.waitPollIntervalMultiplier,
+                options.waitPollIntervalLimit
+            )
         }
 
         if failing {
@@ -161,10 +179,13 @@ extension Testing {
 
     /// Ждет указанное время, пока не выполнится условие.
     ///
+    /// Интервал проверки условия и пауза после успешного ожидания
+    /// задаются глобальными настройками ``TestingOptions/current``.
+    ///
     /// - Parameters:
     ///   - condition: Замыкание, определяющее условие.
     ///   - timeout: Время ожидания текста компонента в секундах.
-    ///              По умолчанию равен 4 секундам.
+    ///              По умолчанию используется ``TestingOptions/waitDefaultTimeout``.
     ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного ожидания.
     ///              По умолчанию флаг включен.
     ///   - message: Описание ошибки в случае сбоя.
@@ -176,7 +197,7 @@ extension Testing {
     @discardableResult
     public func wait(
         for condition: (Self) -> Bool,
-        timeout: TimeInterval = 4,
+        timeout: TimeInterval = TestingOptions.current.waitDefaultTimeout,
         failing: Bool = true,
         message: String = "",
         file: StaticString = #filePath,

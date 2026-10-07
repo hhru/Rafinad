@@ -170,10 +170,11 @@ import XCTest
 ///
 /// ## See Also
 ///
+/// - ``Testing``
+/// - ``TestingList``
 /// - ``ViewAccessibility``
 /// - ``ScreenAccessibility``
 /// - ``AccessibilityKey``
-/// - ``TestingList``
 @MainActor
 @dynamicMemberLookup
 public struct TestingElement<Accessibility: AnyObject>: Testing {
