@@ -7,6 +7,78 @@ import Rafinad
 #if os(iOS) || os(macOS)
 extension TestingElement where Accessibility: SwipeableAccessibility {
 
+    /// Выполняет жест свайпа по указанному направлению и с заданной скоростью.
+    ///
+    /// - Parameters
+    ///   - direction: Направление жеста свайпа.
+    ///   - velocity: Скорость жеста в пикселях в секунду. Имеет стандартное значение по умолчанию.
+    /// - Returns: Экземпляр тестируемого компонента.
+    @discardableResult
+    public func swipe(
+        to direction: TestingSwipeDirection,
+        velocity: XCUIGestureVelocity = .default
+    ) -> Self {
+        switch direction {
+        case .up:
+            swipeUp(velocity: velocity)
+
+        case .down:
+            swipeDown(velocity: velocity)
+
+        case .left:
+            swipeLeft(velocity: velocity)
+
+        case .right:
+            swipeRight(velocity: velocity)
+        }
+    }
+
+    /// Выполняет жест свайпа по указанному направлению и с заданной скоростью до тех пор,
+    /// пока не будет выполнено условие или количество попыток не превысит лимит.
+    ///
+    /// - Parameters:
+    ///   - direction: Направление жеста свайпа.
+    ///   - velocity: Скорость жеста в пикселях в секунду. Имеет стандартное значение по умолчанию.
+    ///   - limit: Максимальное количество попыток.
+    ///   - condition: Замыкание, определяющее условие завершения.
+    /// - Returns: Экземпляр тестируемого компонента.
+    @discardableResult
+    public func swipe(
+        to direction: TestingSwipeDirection,
+        velocity: XCUIGestureVelocity = .default,
+        limit: Int = 16,
+        until condition: (Self) -> Bool
+    ) -> Self {
+        perform(
+            action: { swipe(to: direction, velocity: velocity) },
+            limit: limit,
+            until: condition
+        )
+    }
+
+    /// Выполняет жест свайпа по указанному направлению и с заданной скоростью до тех пор,
+    /// пока не будет выполнено условие или количество попыток не превысит лимит.
+    ///
+    /// - Parameters:
+    ///   - direction: Направление жеста свайпа.
+    ///   - velocity: Скорость жеста в пикселях в секунду. Имеет стандартное значение по умолчанию.
+    ///   - limit: Максимальное количество попыток.
+    ///   - condition: Автозамыкание, определяющее условие завершения.
+    /// - Returns: Экземпляр тестируемого компонента.
+    @discardableResult
+    public func swipe(
+        to direction: TestingSwipeDirection,
+        velocity: XCUIGestureVelocity = .default,
+        limit: Int = 16,
+        until condition: @autoclosure () -> Bool
+    ) -> Self {
+        perform(
+            action: { swipe(to: direction, velocity: velocity) },
+            limit: limit,
+            until: condition
+        )
+    }
+
     /// Выполняет жест свайпа влево с указанной скоростью.
     ///
     /// - Parameter velocity: Скорость жеста в пикселях в секунду. Имеет стандартное значение по умолчанию.
