@@ -153,7 +153,7 @@ extension TestingElement where Accessibility: ViewAccessibility {
     /// - Parameters:
     ///   - frame: Фрейм компонента.
     ///   - timeout: Время ожидания фрейма компонента в секундах.
-    ///              По умолчанию равен 4 секундам.
+    ///              По умолчанию используется ``TestingOptions/waitDefaultTimeout``.
     ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного ожидания.
     ///              По умолчанию флаг включен.
     ///   - file: Файл, в котором должен произойти сбой.
@@ -164,7 +164,7 @@ extension TestingElement where Accessibility: ViewAccessibility {
     @discardableResult
     public func waitForFrame(
         _ frame: CGRect,
-        timeout: TimeInterval = 4,
+        timeout: TimeInterval = TestingOptions.current.waitDefaultTimeout,
         failing: Bool = true,
         file: StaticString = #filePath,
         line: UInt = #line
@@ -184,7 +184,7 @@ extension TestingElement where Accessibility: ViewAccessibility {
     /// - Parameters:
     ///   - other: Другой компонент.
     ///   - timeout: Время ожидания фрейма компонента в секундах.
-    ///              По умолчанию равен 4 секундам.
+    ///              По умолчанию используется ``TestingOptions/waitDefaultTimeout``.
     ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного ожидания.
     ///              По умолчанию флаг включен.
     ///   - file: Файл, в котором должен произойти сбой.
@@ -195,7 +195,7 @@ extension TestingElement where Accessibility: ViewAccessibility {
     @discardableResult
     public func waitForFrame<Element: ViewAccessibility>(
         inside other: TestingElement<Element>,
-        timeout: TimeInterval = 4,
+        timeout: TimeInterval = TestingOptions.current.waitDefaultTimeout,
         failing: Bool = true,
         file: StaticString = #filePath,
         line: UInt = #line
@@ -217,7 +217,7 @@ extension TestingElement where Accessibility: ViewAccessibility {
     /// - Parameters:
     ///   - other: Другой компонент.
     ///   - timeout: Время ожидания фрейма компонента в секундах.
-    ///              По умолчанию равен 4 секундам.
+    ///              По умолчанию используется ``TestingOptions/waitDefaultTimeout``.
     ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного ожидания.
     ///              По умолчанию флаг включен.
     ///   - file: Файл, в котором должен произойти сбой.
@@ -228,7 +228,7 @@ extension TestingElement where Accessibility: ViewAccessibility {
     @discardableResult
     public func waitForFrame<Element: ViewAccessibility>(
         contains other: TestingElement<Element>,
-        timeout: TimeInterval = 4,
+        timeout: TimeInterval = TestingOptions.current.waitDefaultTimeout,
         failing: Bool = true,
         file: StaticString = #filePath,
         line: UInt = #line
@@ -250,7 +250,7 @@ extension TestingElement where Accessibility: ViewAccessibility {
     /// - Parameters:
     ///   - other: Другой компонент.
     ///   - timeout: Время ожидания фрейма компонента в секундах.
-    ///              По умолчанию равен 4 секундам.
+    ///              По умолчанию используется ``TestingOptions/waitDefaultTimeout``.
     ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного ожидания.
     ///              По умолчанию флаг включен.
     ///   - file: Файл, в котором должен произойти сбой.
@@ -261,7 +261,7 @@ extension TestingElement where Accessibility: ViewAccessibility {
     @discardableResult
     public func waitForFrame<Element: ViewAccessibility>(
         intersects other: TestingElement<Element>,
-        timeout: TimeInterval = 4,
+        timeout: TimeInterval = TestingOptions.current.waitDefaultTimeout,
         failing: Bool = true,
         file: StaticString = #filePath,
         line: UInt = #line
@@ -282,7 +282,7 @@ extension TestingElement where Accessibility: ViewAccessibility {
     ///
     /// - Parameters:
     ///   - timeout: Время ожидания появления компонента в секундах.
-    ///              По умолчанию равен 4 секундам.
+    ///              По умолчанию используется ``TestingOptions/waitDefaultTimeout``.
     ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного ожидания.
     ///              По умолчанию флаг включен.
     ///   - file: Файл, в котором должен произойти сбой.
@@ -292,7 +292,7 @@ extension TestingElement where Accessibility: ViewAccessibility {
     /// - Returns: Экземпляр тестируемого компонента.
     @discardableResult
     public func waitForExistence(
-        timeout: TimeInterval = 4,
+        timeout: TimeInterval = TestingOptions.current.waitDefaultTimeout,
         failing: Bool = true,
         file: StaticString = #filePath,
         line: UInt = #line
@@ -311,7 +311,7 @@ extension TestingElement where Accessibility: ViewAccessibility {
     ///
     /// - Parameters:
     ///   - timeout: Время ожидания исчезновения компонента в секундах.
-    ///              По умолчанию равен 4 секундам.
+    ///              По умолчанию используется ``TestingOptions/waitDefaultTimeout``.
     ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного ожидания.
     ///              По умолчанию флаг включен.
     ///   - file: Файл, в котором должен произойти сбой.
@@ -321,7 +321,7 @@ extension TestingElement where Accessibility: ViewAccessibility {
     /// - Returns: Экземпляр тестируемого компонента.
     @discardableResult
     public func waitForNonExistence(
-        timeout: TimeInterval = 4,
+        timeout: TimeInterval = TestingOptions.current.waitDefaultTimeout,
         failing: Bool = true,
         file: StaticString = #filePath,
         line: UInt = #line

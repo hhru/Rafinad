@@ -62,6 +62,7 @@ import XCTest
 ///
 /// ## See Also
 ///
+/// - ``Testing``
 /// - ``TestingElement``
 /// - ``ViewAccessibility``
 /// - ``ScreenAccessibility``

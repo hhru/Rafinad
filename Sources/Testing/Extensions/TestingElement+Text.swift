@@ -43,7 +43,7 @@ extension TestingElement where Accessibility: TextAccessibility {
     /// - Parameters:
     ///   - text: Текст компонента.
     ///   - timeout: Время ожидания текста компонента в секундах.
-    ///              По умолчанию равен 4 секундам.
+    ///              По умолчанию используется ``TestingOptions/waitDefaultTimeout``.
     ///   - failing: Флаг, определяющий необходимость сбоя после безуспешного ожидания.
     ///              По умолчанию флаг включен.
     ///   - file: Файл, в котором должен произойти сбой.
@@ -54,7 +54,7 @@ extension TestingElement where Accessibility: TextAccessibility {
     @discardableResult
     public func waitForText(
         _ text: String,
-        timeout: TimeInterval = 4,
+        timeout: TimeInterval = TestingOptions.current.waitDefaultTimeout,
         failing: Bool = true,
         file: StaticString = #filePath,
         line: UInt = #line
